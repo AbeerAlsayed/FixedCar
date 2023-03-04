@@ -8,6 +8,7 @@
         "php": "^8.0.2",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
+        "laravel/nova": "^4.15",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7"
     },
@@ -60,6 +61,12 @@
             "pestphp/pest-plugin": true
         }
     },
+    "repositories": [
+        {
+            "type": "artifact",
+            "url": "./nova"
+        }
+    ],
     "minimum-stability": "stable",
     "prefer-stable": true
 }
