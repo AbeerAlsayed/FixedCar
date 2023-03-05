@@ -15,7 +15,7 @@ class Vehicle extends Model
     use SoftDeletes;
 
     protected $guarded = ['id'];
-
+    protected $fillable=['plate_number','model','brand','year_of_manufacture'];
     public function clients():BelongsTo
     {
         return $this->belongsTo(Client::class);

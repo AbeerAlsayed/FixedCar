@@ -15,7 +15,7 @@ class Center extends Model
     use SoftDeletes;
 
     protected $guarded = ['id'];
-
+    protected $fillable=['name','address'];
     public function users():HasMany
     {
         return $this->hasMany(User::class);

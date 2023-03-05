@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('warehouses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('warehouse_id');
-            $table->unsignedBigInteger('spare_part_id');
+            $table->unsignedBigInteger('center_id');
+            $table->unsignedBigInteger('user_id');
             $table->softDeletes();
             $table->timestamps();
         });
