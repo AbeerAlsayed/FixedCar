@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -42,11 +43,11 @@ class Vehicle extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Plate Number Of Vehicle','plate_number')->rules('required'),
-            Text::make('Vehicle Model','model')->rules('required'),
-            Text::make('Brand','brand')->rules('required'),
+            Text::make('Plate Number Of Vehicle','plate_number')->required(),
+            Text::make('Vehicle Model','model')->required(),
+            Text::make('Brand','brand')->required(),
             Text::make('Year Of Manufacture','year_of_manufacture')->withMeta(['extraAttributes' => ['type' => 'date']]),
-//            BelongsTo::make('Client','clients',Client::class),
+            BelongsTo::make('Client','clients',Client::class),
 //            HasMany::make('Report','Reports',Report::class)->rules('required'),
         ];
     }

@@ -2,7 +2,7 @@
 
 namespace App\Nova;
 
-use App\Models\Warehouse;
+
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Currency;
@@ -47,7 +47,7 @@ class SparePart extends Resource
             ID::make()->sortable(),
             Text::make('Type','type')->sortable(),
             Currency::make('Price','price')->min(1)->max(1000)->step(0.01)->Currency('SYP'),
-//            BelongsToMany::make('Warehouse','Warehouse',Warehouse::class),
+            BelongsToMany::make('Warehouse','Warehouse',Warehouse::class),
             BelongsToMany::make('Bill','Bills',Bill::class),
         ];
     }

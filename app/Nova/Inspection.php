@@ -56,7 +56,7 @@ class Inspection extends Resource
 
             BelongsTo::make('Client','client',Client::class),
             BelongsTo::make('User','user',User::class),
-            //BelongsTo::make('Center','Center',Center::class),
+            BelongsTo::make('Center','Center',Center::class),
             //HasOne::make('Reports' ,'Reports' ,Report::class)
         ];
     }

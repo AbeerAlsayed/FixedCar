@@ -44,9 +44,9 @@ class Warehouse extends Resource
     {
         return [
             ID::make()->sortable(),
-            HasOne::make('Center','Center',Center::class)->rules('required'),
+            HasOne::make('Center','Center',Center::class)->required(),
             BelongsToMany::make('SparePart','SpareParts',SparePart::class),
-            HasMany::make('User','Users',User::class)->rules('required'),
+            HasMany::make('User','Users',User::class)->required(),
 
         ];
     }

@@ -2,11 +2,10 @@
 
 namespace App\Nova;
 
-use App\Models\Warehouse;
-use Illuminate\Http\Request;
+
+
 use Illuminate\Validation\Rules;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
@@ -67,9 +66,9 @@ class User extends Resource
                 ->creationRules('required', Rules\Password::defaults())
                 ->updateRules('nullable', Rules\Password::defaults()),
 
-            //BelongsTo::make('Center' , 'center' ,Center::class),
+            BelongsTo::make('Center' , 'center' ,Center::class),
 
-            //BelongsTo::make('Warehouse','Warehouse',Warehouse::class),
+            BelongsTo::make('Warehouse','Warehouse',Warehouse::class),
 
             HasMany::make('Inspections','Inspections',Inspection::class),
 

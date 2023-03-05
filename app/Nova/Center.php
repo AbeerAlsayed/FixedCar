@@ -46,11 +46,11 @@ class Center extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('Name The Center','name')->rules('required'),
-            Text::make('Location','address')->rules('required'),
-            HasMany::make('user','users',User::class)->rules('required'),
-            HasMany::make('Inspection','Inspections',Inspection::class)->rules('required'),
-            HasOne::make('Warehouse','Warehouse',Warehouse::class)->rules('required'),
+            Text::make('Name The Center','name')->required(),
+            Text::make('Location','address')->required(),
+            HasMany::make('user','users',User::class)->required(),
+            HasMany::make('Inspection','Inspections',Inspection::class)->required(),
+            HasOne::make('Warehouse','Warehouse',Warehouse::class)->required(),
             BelongsToMany::make('Service','Services',Service::class),
         ];
     }
