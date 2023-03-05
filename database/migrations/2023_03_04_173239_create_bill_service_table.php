@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('bill_id');
             $table->unsignedBigInteger('service_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

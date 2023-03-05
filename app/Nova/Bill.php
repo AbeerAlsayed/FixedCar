@@ -45,9 +45,9 @@ class Bill extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Report Id','report_id')->required(),
-//            BelongsTo::make('Report','report',Report::class),
-            BelongsToMany::make('SparePart','spare_part',SparePart::class),
-            BelongsToMany::make('Service','service',Service::class),
+//            BelongsTo::make('Report','Report',Report::class),
+            BelongsToMany::make('SparePart','SpareParts',SparePart::class),
+            BelongsToMany::make('Service','Services',Service::class),
         ];
     }
 

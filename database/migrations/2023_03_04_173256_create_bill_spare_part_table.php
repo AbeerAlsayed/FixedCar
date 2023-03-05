@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('bill_spare_part', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('bill_id');
+            $table->unsignedBigInteger('spare_part_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

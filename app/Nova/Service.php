@@ -46,9 +46,9 @@ class Service extends Resource
             ID::make()->sortable(),
             Text::make('Type','type')->sortable(),
             Currency::make('Price','price')->min(1)->max(1000)->step(0.01),
-            BelongsToMany::make('Bill','bill',Bill::class),
-//            BelongsToMany::make('Center','center',Center::class),
-//            BelongsToMany::make('Report','report',Report::class),
+            BelongsToMany::make('Bill','Bills',Bill::class),
+//            BelongsToMany::make('Center','Centers',Center::class),
+//            BelongsToMany::make('Report','Reports',Report::class),
         ];
     }
 

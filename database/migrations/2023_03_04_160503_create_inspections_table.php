@@ -18,9 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('status');
             $table->string('description')->nullable();
-            $table->unsignedBigInteger('clint_id');
-            $table->unsignedBigInteger('center_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('Client_id');
+            $table->unsignedBigInteger('center_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

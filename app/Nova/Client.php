@@ -2,22 +2,20 @@
 
 namespace App\Nova;
 
-use App\Models\Warehouse;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Currency;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class SparePart extends Resource
+class Client extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\SparePart>
+     * @var class-string<\App\Models\Client>
      */
-    public static $model = \App\Models\SparePart::class;
+    public static $model = \App\Models\Client::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -45,10 +43,11 @@ class SparePart extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Type','type')->sortable(),
-            Currency::make('Price','price')->min(1)->max(1000)->step(0.01),
-//            BelongsToMany::make('Warehouse','Warehouse',Warehouse::class),
-            BelongsToMany::make('Bill','Bills',Bill::class),
+            Text::make('Client Name', 'name'),
+            Text::make('Phone Number','phone_number'),
+            Text::make('Address','address'),
+            HasMany::make('Inspections','Inspections',Inspection::class),
+//            HasMany::make('Vehicles','Vehicles',Vehicle::class)
         ];
     }
 

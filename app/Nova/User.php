@@ -2,9 +2,13 @@
 
 namespace App\Nova;
 
+use App\Models\Warehouse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Gravatar;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
@@ -62,6 +66,17 @@ class User extends Resource
                 ->onlyOnForms()
                 ->creationRules('required', Rules\Password::defaults())
                 ->updateRules('nullable', Rules\Password::defaults()),
+
+            //BelongsTo::make('Center' , 'center' ,Center::class),
+
+            //BelongsTo::make('Warehouse','Warehouse',Warehouse::class),
+
+            HasMany::make('Inspections','Inspections',Inspection::class),
+
+            //BelongsToMany::make('Roles','Roles',Role::class),
+
+            //BelongsToMany::make('Reports','Reports',Report::class),
+
         ];
     }
 

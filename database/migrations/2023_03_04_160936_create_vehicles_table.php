@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('model');
             $table->string('brand');
             $table->date('year_of_manufacture');
-            $table->unsignedBigInteger('clint_id');
+            $table->unsignedBigInteger('Client_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

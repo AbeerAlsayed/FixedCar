@@ -2,22 +2,23 @@
 
 namespace App\Nova;
 
-use App\Models\Warehouse;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Currency;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class SparePart extends Resource
+class Inspection extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\SparePart>
+     * @var class-string<\App\Models\Inspection>
      */
-    public static $model = \App\Models\SparePart::class;
+    public static $model = \App\Models\Inspection::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -45,10 +46,17 @@ class SparePart extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Type','type')->sortable(),
-            Currency::make('Price','price')->min(1)->max(1000)->step(0.01),
-//            BelongsToMany::make('Warehouse','Warehouse',Warehouse::class),
-            BelongsToMany::make('Bill','Bills',Bill::class),
+            Text::make('Full Name', 'name'),
+            Select::make('Status' , 'status')->options([
+                'Pending' => 'Pending',
+                'Process' => 'Process',
+                'Finished' => 'Finished',
+            ])->default('Pending')->required(),
+            Markdown::make('Description','description'),
+            BelongsTo::make('Client','client',Client::class),
+            BelongsTo::make('User','user',User::class),
+            //BelongsTo::make('Center','Center',Center::class),
+            //HasOne::make('Reports' ,'Reports' ,Report::class)
         ];
     }
 
