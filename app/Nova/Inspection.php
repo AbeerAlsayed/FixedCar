@@ -25,7 +25,7 @@ class Inspection extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -53,6 +53,7 @@ class Inspection extends Resource
                 'Finished' => 'Finished',
             ])->default('Pending')->required(),
             Markdown::make('Description','description'),
+
             BelongsTo::make('Client','client',Client::class),
             BelongsTo::make('User','user',User::class),
             //BelongsTo::make('Center','Center',Center::class),
