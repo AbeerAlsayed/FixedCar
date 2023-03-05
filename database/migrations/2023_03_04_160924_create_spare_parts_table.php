@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('spare_parts', function (Blueprint $table) {
             $table->id();
             $table->string('type');
-            $table->unsignedBigInteger('price');
+            $table->integer('price');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

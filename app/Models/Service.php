@@ -20,7 +20,7 @@ class Service extends Model
 
     public function Centers():BelongsToMany
     {
-        return $this->belongsToMany(Centers::class);
+        return $this->belongsToMany(Center::class);
     }
 
     public function Reports():BelongsToMany
