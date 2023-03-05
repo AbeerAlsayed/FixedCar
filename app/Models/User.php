@@ -49,17 +49,17 @@ class User extends Authenticatable
 
     public function center(): belongsTo
     {
-        return $this->belongsTo(UserCenter::class);
-    }
-
-    public function Inspections():HasMany
-    {
-        return $this->hasMany(Inspection::class);
+        return $this->belongsTo(Center::class);
     }
 
     public function Warehouse():belongsTo
     {
         return $this->belongsTo(Warehouse::class);
+    }
+
+    public function Inspections():HasMany
+    {
+        return $this->hasMany(Inspection::class);
     }
 
     public function Roles():BelongsToMany

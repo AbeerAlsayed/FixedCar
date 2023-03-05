@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('report_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('inspection_id');
             $table->unsignedBigInteger('service_id');
             $table->unsignedBigInteger('spare_part_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

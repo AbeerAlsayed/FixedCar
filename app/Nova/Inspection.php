@@ -2,33 +2,30 @@
 
 namespace App\Nova;
 
-use App\Models\Warehouse;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rules;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Gravatar;
-use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Password;
+use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class User extends Resource
+class Inspection extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\User>
+     * @var class-string<\App\Models\Inspection>
      */
-    public static $model = \App\Models\User::class;
+    public static $model = \App\Models\Inspection::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -36,7 +33,7 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email',
+        'id',
     ];
 
     /**
@@ -49,34 +46,17 @@ class User extends Resource
     {
         return [
             ID::make()->sortable(),
-
-            Gravatar::make()->maxWidth(50),
-
-            Text::make('Name')
-                ->sortable()
-                ->rules('required', 'max:255'),
-
-            Text::make('Email')
-                ->sortable()
-                ->rules('required', 'email', 'max:254')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
-
-            Password::make('Password')
-                ->onlyOnForms()
-                ->creationRules('required', Rules\Password::defaults())
-                ->updateRules('nullable', Rules\Password::defaults()),
-
-            //BelongsTo::make('Center' , 'center' ,Center::class),
-
-            //BelongsTo::make('Warehouse','Warehouse',Warehouse::class),
-
-            HasMany::make('Inspections','Inspections',Inspection::class),
-
-            //BelongsToMany::make('Roles','Roles',Role::class),
-
-            //BelongsToMany::make('Reports','Reports',Report::class),
-
+            Text::make('Full Name', 'name'),
+            Select::make('Status' , 'status')->options([
+                'Pending' => 'Pending',
+                'Process' => 'Process',
+                'Finished' => 'Finished',
+            ])->default('Pending')->required(),
+            Markdown::make('Description','description'),
+            BelongsTo::make('Client','client',Client::class),
+            BelongsTo::make('User','user',User::class),
+            //BelongsTo::make('Center','Center',Center::class),
+            //HasOne::make('Reports' ,'Reports' ,Report::class)
         ];
     }
 

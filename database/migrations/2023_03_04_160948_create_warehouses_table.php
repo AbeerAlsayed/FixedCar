@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('warehouse_id');
             $table->unsignedBigInteger('spare_part_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
