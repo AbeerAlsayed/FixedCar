@@ -16,7 +16,7 @@ class SparePart extends Model
 
     public function Warehouse():BelongsToMany
     {
-        return $this->BelongsToMany(Warehouse::class);
+        return $this->BelongsToMany(Warehouse::class,'warehouse_spare_part');
     }
 
     public function Bills():BelongsToMany{

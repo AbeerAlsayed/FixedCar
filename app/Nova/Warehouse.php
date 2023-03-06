@@ -2,13 +2,14 @@
 
 namespace App\Nova;
 
+//use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
-
+use Laravel\Nova\Fields\BelongsTo;
 class Warehouse extends Resource
 {
     /**
@@ -44,10 +45,10 @@ class Warehouse extends Resource
     {
         return [
             ID::make()->sortable(),
-            HasOne::make('Center','Center',Center::class)->required(),
+//            HasOne::make('Center','Center',Center::class)->required(),
             BelongsToMany::make('SparePart','SpareParts',SparePart::class),
             HasMany::make('User','Users',User::class)->required(),
-
+            BelongsTo::make('Center','Center',Center::class)
         ];
     }
 

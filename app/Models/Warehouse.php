@@ -16,14 +16,14 @@ class Warehouse extends Model
 
     protected $guarded = ['id'];
 
-    public function Center():HasOne
+    public function Center(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->hasOne(Center::class);
+        return $this->belongsTo(Center::class);
     }
 
     public function SpareParts():BelongsToMany
     {
-        return $this->belongsToMany(SparePart::class);
+        return $this->belongsToMany(SparePart::class,'warehouse_spare_part');
     }
 
     public function Users():hasMany
