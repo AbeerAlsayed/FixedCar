@@ -32,7 +32,7 @@ class Report extends Model
 
     public function Services(): BelongsToMany
     {
-        return $this->belongsToMany(Service::class);
+        return $this->belongsToMany(Service::class,'report_service');
     }
 
     public function Users(): BelongsToMany

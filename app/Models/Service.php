@@ -15,12 +15,12 @@ class Service extends Model
     protected $guarded = ['id'];
 
     public function Bills():BelongsToMany{
-        return $this->belongsToMany(Bill::class);
+        return $this->belongsToMany(Bill::class,'bill_service');
     }
 
     public function Centers():BelongsToMany
     {
-        return $this->belongsToMany(Center::class);
+        return $this->belongsToMany(Center::class,'center_service','center_id','service_id');
     }
 
     public function Reports():BelongsToMany
