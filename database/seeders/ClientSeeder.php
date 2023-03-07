@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Center;
+use App\Models\Client;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CenterSeeder extends Seeder
+class ClientSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,18 +15,16 @@ class CenterSeeder extends Seeder
      */
     public function run()
     {
-        Center::create([
-            'name'=>'Fix car',
+        Client::create([
+            'name'=>'MHD',
+            'phone_number'=>'0937124259',
             'address'=>'Almeedain'
         ]);
 
-        Center::create([
-            'name'=>'Rplie cars',
+        Client::create([
+            'name'=>'Saeed',
+            'phone_number'=>'0999999999',
             'address'=>'ALmazaa'
-        ]);
-        Center::create([
-            'name'=>'fixing cars',
-            'address'=>'Barza',
         ]);
     }
 }

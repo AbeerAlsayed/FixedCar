@@ -28,6 +28,6 @@ class Warehouse extends Model
 
     public function Users():hasMany
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(User::class, 'warehouse_id');
     }
 }

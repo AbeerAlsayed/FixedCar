@@ -48,7 +48,7 @@ class Vehicle extends Resource
             Text::make('Vehicle Model','model')->required(),
             Text::make('Brand','brand')->required(),
             Text::make('Year Of Manufacture','year_of_manufacture')->withMeta(['extraAttributes' => ['type' => 'date']]),
-            BelongsTo::make('Client','client',Client::class),
+            BelongsTo::make('Client','clients',Client::class),
             HasMany::make('Report','Reports',Report::class)->rules('required'),
         ];
     }

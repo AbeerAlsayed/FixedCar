@@ -18,25 +18,21 @@ class Center extends Model
 
     public function users():HasMany
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(User::class ,'center_id');
     }
 
     public function Inspections(): HasMany
     {
-        return $this->hasMany(Inspection::class);
+        return $this->hasMany(Inspection::class ,'center_id');
     }
 
     public function  Warehouse():HasOne
     {
-        return $this->hasOne(Warehouse::class);
+        return $this->hasOne(Warehouse::class ,'center_id');
     }
 
     public function Services(): BelongsToMany
     {
-<<<<<<< HEAD
         return $this->belongsToMany(Service::class,'center_service');
-=======
-        return $this->belongsToMany(Service::class,'center_service','service_id','center_id');
->>>>>>> 1483caea70734846ee0dcad5e57c204c0c167e83
     }
 }

@@ -24,7 +24,7 @@ class Warehouse extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'Centers';
 
     /**
      * The columns that should be searched.
@@ -48,8 +48,7 @@ class Warehouse extends Resource
             BelongsTo::make('Center','Center',Center::class),
             BelongsToMany::make('SparePart','SpareParts',SparePart::class),
             HasMany::make('User','Users',User::class)->required(),
-//            BelongsTo::make('Center','Center',Center::class)
-        ];
+            ];
     }
 
     /**

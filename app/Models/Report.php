@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use \Illuminate\Database\Eloquent\Relations\BelongsTo;
 use \Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -40,8 +41,8 @@ class Report extends Model
         return $this->belongsToMany(User::class,'user_report');
     }
 
-    public function  Bill(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function  Bill(): HasOne
     {
-        return $this->hasOne(Bill::class);
+        return $this->hasOne(Bill::class , 'report_id');
     }
 }

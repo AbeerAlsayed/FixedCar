@@ -15,14 +15,10 @@ class Vehicle extends Model
     use SoftDeletes;
 
     protected $guarded = ['id'];
-//    protected $fillable=['plate_number','model','brand','year_of_manufacture'];
-<<<<<<< HEAD
-    public function client():BelongsTo
-=======
-    public function clients():BelongsTo
->>>>>>> 1483caea70734846ee0dcad5e57c204c0c167e83
+
+       public function clients():BelongsTo
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(Client::class ,'client_id');
     }
 
     public function Reports():HasMany

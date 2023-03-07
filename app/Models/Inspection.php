@@ -17,21 +17,21 @@ class Inspection extends Model
 
     public function client(): BelongsTo
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(Client::class, 'Client_id');
     }
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id');
     }
 
     public function Center(): BelongsTo
     {
-        return $this->belongsTo(Center::class);
+        return $this->belongsTo(Center::class,'center_id');
     }
 
     public function Reports(): hasOne
     {
-        return $this->hasOne(Report::class);
+        return $this->hasOne(Report::class ,'inspection_id');
     }
 }

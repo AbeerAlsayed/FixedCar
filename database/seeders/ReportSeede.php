@@ -2,23 +2,25 @@
 
 namespace Database\Seeders;
 
+use App\Models\Report;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
-class BillSeeder extends Seeder
+class ReportSeede extends Seeder
 {
     /**
      * Run the database seeds.
      *
      * @return void
-     * @throws \Exception
      */
     public function run()
     {
-        DB::table('bills')->insert([
-            'report_id' => 1,
+        Report::create([
+            'description'=>'Car oil change',
+            'vehicle_id'=>1,
+            'inspection_id'=>1,
+            'service_id'=>1,
+            'spare_part_id'=>1
         ]);
     }
 }

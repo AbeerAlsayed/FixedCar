@@ -18,18 +18,34 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'ahmad',
             'email' => 'ahmad@gmail.com',
-            'password' => Hash::make('ahmad')
+            'password' => Hash::make('ahmad'),
+            'center_id' => 0,
+            'warehouse_id'=>0
         ]);
-<<<<<<< HEAD
-        User::created([
+        User::create([
+            'name' => 'anas',
+            'email' => 'asna@gmail.com',
+            'password' => Hash::make('anas'),
+            'center_id' => 0,
+            'warehouse_id'=>0
+            ]);
+
+
+        User::create([
             'name' => 'abeer',
             'email' => 'abeer@gmail.com',
-=======
+            'password' => Hash::make('abeer'),
+            'center_id' => 0,
+            'warehouse_id'=>0
+        ]);
+
         User::create([
             'name' => 'tamador',
             'email' => 'tamador@gmail.com',
->>>>>>> 1483caea70734846ee0dcad5e57c204c0c167e83
-            'password' => Hash::make('123')
+            'password' => Hash::make('123'),
+            'center_id' => 0,
+            'warehouse_id'=>0
         ]);
+
     }
 }

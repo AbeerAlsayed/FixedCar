@@ -49,9 +49,9 @@ class Report extends Resource
             BelongsTo::make('Vehicle','vehicle',Vehicle::class),
             BelongsTo::make('Inspection','inspections',Inspection::class),
             BelongsTo::make('SparePart','SpareParts',SparePart::class),
-            HasOne::make('Bill','Bill',Bill::class),
             BelongsToMany::make('Service','Services',Service::class),
             BelongsToMany::make('User','Users',User::class),
+            HasOne::make('Bill','Bill',Bill::class),
         ];
     }
 

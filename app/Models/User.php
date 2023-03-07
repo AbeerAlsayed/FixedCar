@@ -49,17 +49,17 @@ class User extends Authenticatable
 
     public function center(): belongsTo
     {
-        return $this->belongsTo(Center::class);
+        return $this->belongsTo(Center::class,'center_id');
     }
 
     public function Warehouse():belongsTo
     {
-        return $this->belongsTo(Warehouse::class);
+        return $this->belongsTo(Warehouse::class,'warehouse_id');
     }
 
     public function Inspections():HasMany
     {
-        return $this->hasMany(Inspection::class);
+        return $this->hasMany(Inspection::class,'user_id');
     }
 
     public function Roles():BelongsToMany

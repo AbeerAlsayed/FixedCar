@@ -44,7 +44,6 @@ class Bill extends Resource
     {
         return [
             ID::make()->sortable(),
-//            Text::make('Report Id','report_id')->required(),
             BelongsToMany::make('SparePart','SpareParts',SparePart::class),
             BelongsToMany::make('Service','Services',Service::class),
             BelongsTo::make('Report','Report',Report::class),
