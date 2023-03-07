@@ -23,7 +23,7 @@ class Service extends Resource
      *
      * @var string
      */
-    public static $title = 'Type';
+    public static $title = 'type';
 
     /**
      * The columns that should be searched.
@@ -48,7 +48,7 @@ class Service extends Resource
             Currency::make('Price','price')->min(1)->max(1000)->step(0.01)->Currency('SYP'),
             BelongsToMany::make('Bill','Bills',Bill::class),
             BelongsToMany::make('Center','Centers',Client::class),
-//            BelongsToMany::make('Report','Reports',Report::class),
+            BelongsToMany::make('Report','Reports',Report::class),
         ];
     }
 

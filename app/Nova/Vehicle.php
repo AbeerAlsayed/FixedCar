@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -22,7 +23,7 @@ class Vehicle extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'model';
 
     /**
      * The columns that should be searched.
@@ -47,8 +48,8 @@ class Vehicle extends Resource
             Text::make('Vehicle Model','model')->required(),
             Text::make('Brand','brand')->required(),
             Text::make('Year Of Manufacture','year_of_manufacture')->withMeta(['extraAttributes' => ['type' => 'date']]),
-            BelongsTo::make('Client','clients',Client::class),
-//            HasMany::make('Report','Reports',Report::class)->rules('required'),
+            BelongsTo::make('Client','client',Client::class),
+            HasMany::make('Report','Reports',Report::class)->rules('required'),
         ];
     }
 

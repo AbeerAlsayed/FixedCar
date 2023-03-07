@@ -33,6 +33,6 @@ class Center extends Model
 
     public function Services(): BelongsToMany
     {
-        return $this->belongsToMany(Service::class);
+        return $this->belongsToMany(Service::class,'center_service');
     }
 }

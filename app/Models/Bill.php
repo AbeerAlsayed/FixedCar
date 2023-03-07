@@ -18,12 +18,12 @@ class Bill extends Model
 
     public function SpareParts():BelongsToMany
     {
-        return $this->belongsToMany(SparePart::class);
+        return $this->belongsToMany(SparePart::class,'bill_spare_part');
     }
 
     public function Services():BelongsToMany
     {
-        return $this->belongsToMany(Service::class);
+        return $this->belongsToMany(Service::class,'bill_service');
     }
 
     public function Report(): BelongsTo

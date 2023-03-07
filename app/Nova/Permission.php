@@ -3,27 +3,26 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Bill extends Resource
+class Permission extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Bill>
+     * @var class-string<\App\Models\Permission>
      */
-    public static $model = \App\Models\Bill::class;
+    public static $model = \App\Models\Permission::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -44,10 +43,10 @@ class Bill extends Resource
     {
         return [
             ID::make()->sortable(),
-//            Text::make('Report Id','report_id')->required(),
-            BelongsToMany::make('SparePart','SpareParts',SparePart::class),
-            BelongsToMany::make('Service','Services',Service::class),
-            BelongsTo::make('Report','Report',Report::class),
+            Text::make('Name')
+                ->sortable()
+                ->rules('required', 'max:255'),
+            BelongsToMany::make('Role','Roles',Role::class),
         ];
     }
 

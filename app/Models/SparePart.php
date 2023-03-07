@@ -20,6 +20,6 @@ class SparePart extends Model
     }
 
     public function Bills():BelongsToMany{
-        return $this->BelongsToMany(Bill::class);
+        return $this->BelongsToMany(Bill::class,'bill_spare_part');
     }
 }

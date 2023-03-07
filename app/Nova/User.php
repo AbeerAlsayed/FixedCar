@@ -6,6 +6,7 @@ namespace App\Nova;
 
 use Illuminate\Validation\Rules;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
@@ -72,9 +73,9 @@ class User extends Resource
 
             HasMany::make('Inspections','Inspections',Inspection::class),
 
-            //BelongsToMany::make('Roles','Roles',Role::class),
+            BelongsToMany::make('Roles','Roles',Role::class),
 
-            //BelongsToMany::make('Reports','Reports',Report::class),
+            BelongsToMany::make('Reports','Reports',Report::class),
 
         ];
     }

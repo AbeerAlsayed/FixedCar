@@ -15,33 +15,33 @@ class Report extends Model
 
     protected $guarded = ['id'];
 
-    public function vehicles(): BelongsTo
+    public function vehicle(): BelongsTo
     {
-        return $this->belongsTo(Vehicle::class,'vehicles_id');
+        return $this->belongsTo(Vehicle::class,'vehicle_id');
     }
 
     public function inspections(): BelongsTo
     {
-        return $this->belongsTo(Inspection::class,'inspections_id');
+        return $this->belongsTo(Inspection::class,'inspection_id');
     }
 
     public function SpareParts(): BelongsTo
     {
-        return $this->belongsTo(SparePart::class,'spare_parts_id');
+        return $this->belongsTo(SparePart::class,'spare_part_id');
     }
 
     public function Services(): BelongsToMany
     {
-        return $this->belongsToMany(Service::class);
+        return $this->belongsToMany(Service::class,'report_service');
     }
 
     public function Users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class,'user_report');
     }
 
-    public function  Bill(): BelongsTo
+    public function  Bill(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
-        return $this->belongsTo(Bill::class,'bill_id');
+        return $this->hasOne(Bill::class);
     }
 }

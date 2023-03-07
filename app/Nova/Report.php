@@ -5,18 +5,19 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Bill extends Resource
+class Report extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Bill>
+     * @var class-string<\App\Models\Report>
      */
-    public static $model = \App\Models\Bill::class;
+    public static $model = \App\Models\Report::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -44,10 +45,13 @@ class Bill extends Resource
     {
         return [
             ID::make()->sortable(),
-//            Text::make('Report Id','report_id')->required(),
-            BelongsToMany::make('SparePart','SpareParts',SparePart::class),
+            Markdown::make('Description','description'),
+            BelongsTo::make('Vehicle','vehicle',Vehicle::class),
+            BelongsTo::make('Inspection','inspections',Inspection::class),
+            BelongsTo::make('SparePart','SpareParts',SparePart::class),
+            HasOne::make('Bill','Bill',Bill::class),
             BelongsToMany::make('Service','Services',Service::class),
-            BelongsTo::make('Report','Report',Report::class),
+            BelongsToMany::make('User','Users',User::class),
         ];
     }
 

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('description');
             $table->unsignedBigInteger('vehicle_id');
             $table->unsignedBigInteger('inspection_id');
-            $table->unsignedBigInteger('service_id');
+//            $table->unsignedBigInteger('service_id');
             $table->unsignedBigInteger('spare_part_id');
             $table->softDeletes();
             $table->timestamps();

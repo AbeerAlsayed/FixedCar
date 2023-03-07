@@ -25,7 +25,9 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             SparePartSeeder::class,
             BillSeeder::class,
-
+            RoleSeeder::class,
+            PermissionSeeder::class,
+            CenterSeeder::class
         ]);
     }
 }
