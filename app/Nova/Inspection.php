@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Markdown;
@@ -53,11 +54,11 @@ class Inspection extends Resource
                 'Finished' => 'Finished',
             ])->default('Pending')->required(),
             Markdown::make('Description','description'),
-
+            HasMany::make('Vehicles','Vehicles',Vehicle::class),
             BelongsTo::make('Client','client',Client::class),
             BelongsTo::make('User','user',User::class),
             BelongsTo::make('Center','Center',Center::class),
-            HasOne::make('Reports' ,'Reports' ,Report::class)
+            HasOne::make('Reports' ,'Reports' ,Report::class),
         ];
     }
 
