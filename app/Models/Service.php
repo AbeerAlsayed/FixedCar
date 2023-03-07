@@ -20,7 +20,11 @@ class Service extends Model
 
     public function Centers():BelongsToMany
     {
+<<<<<<< HEAD
         return $this->belongsToMany(Center::class,'center_service');
+=======
+        return $this->belongsToMany(Center::class,'center_service','center_id','service_id');
+>>>>>>> 1483caea70734846ee0dcad5e57c204c0c167e83
     }
 
     public function Reports():BelongsToMany

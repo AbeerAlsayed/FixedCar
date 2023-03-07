@@ -15,7 +15,7 @@ class Center extends Model
     use SoftDeletes;
 
     protected $guarded = ['id'];
-    protected $fillable=['name','address'];
+
     public function users():HasMany
     {
         return $this->hasMany(User::class);
@@ -33,6 +33,10 @@ class Center extends Model
 
     public function Services(): BelongsToMany
     {
+<<<<<<< HEAD
         return $this->belongsToMany(Service::class,'center_service');
+=======
+        return $this->belongsToMany(Service::class,'center_service','service_id','center_id');
+>>>>>>> 1483caea70734846ee0dcad5e57c204c0c167e83
     }
 }

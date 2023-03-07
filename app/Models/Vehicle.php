@@ -16,7 +16,11 @@ class Vehicle extends Model
 
     protected $guarded = ['id'];
 //    protected $fillable=['plate_number','model','brand','year_of_manufacture'];
+<<<<<<< HEAD
     public function client():BelongsTo
+=======
+    public function clients():BelongsTo
+>>>>>>> 1483caea70734846ee0dcad5e57c204c0c167e83
     {
         return $this->belongsTo(Client::class);
     }
