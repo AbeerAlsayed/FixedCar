@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
 use \Illuminate\Database\Eloquent\Relations\belongsTo;
 
@@ -70,5 +71,17 @@ class User extends Authenticatable
     public function Reports():BelongsToMany
     {
         return $this->belongsToMany(Report::class,'user_report');
+    }
+    public function getpermission()
+    {
+        $permission=[];
+        foreach (Auth::user()->Roles as $per)
+        {
+            foreach ($per->Permissions as $pe)
+            {
+                array_push($permission,$pe->name);
+            }
+        }
+        return $permission;
     }
 }

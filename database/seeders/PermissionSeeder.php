@@ -15,9 +15,24 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        Permission::create(['name' => 'Edit']);
-        Permission::create(['name' => 'Delete']);
-        Permission::create(['name' => 'Add']);
-        Permission::create(['name' => 'Update']);
+        //      Permission Bill
+        Permission::create(['name' => 'View_bill']);
+        Permission::create(['name' => 'Create_bill']);
+        Permission::create(['name' => 'Delete_bill']);
+        Permission::create(['name' => 'store_bill']);
+        Permission::create(['name' => 'Edit_bill']);
+
+//      Permission Center
+        Permission::create(['name' => 'Create_center']);
+        Permission::create(['name' => 'Delete_center']);
+        Permission::create(['name' => 'Store_center']);
+        Permission::create(['name' => 'Edit_center']);
+
+        // Permission Service
+        Permission::create(['name' => 'Create_service ']);
+        Permission::create(['name' => 'Delete_service']);
+        Permission::create(['name' => 'Store_service']);
+        Permission::create(['name' => 'Edit_service']);
+//
     }
 }
