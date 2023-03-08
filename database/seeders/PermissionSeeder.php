@@ -34,5 +34,24 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'Store_service']);
         Permission::create(['name' => 'Edit_service']);
 //
+
+//        // Permission
+//        Permission::create(['name' => 'Create_']);
+//        Permission::create(['name' => 'Delete_']);
+//        Permission::create(['name' => 'Store_']);
+//        Permission::create(['name' => 'Edit_']);
+//
+//        // Permission
+//        Permission::create(['name' => 'Create_']);
+//        Permission::create(['name' => 'Delete_']);
+//        Permission::create(['name' => 'Store_']);
+//        Permission::create(['name' => 'Edit_']);
+//
+//        // Permission
+//        Permission::create(['name' => 'Create_']);
+//        Permission::create(['name' => 'Delete_']);
+//        Permission::create(['name' => 'Store_']);
+//        Permission::create(['name' => 'Edit_']);
+
     }
 }
