@@ -49,7 +49,12 @@ class CenterPolicy
 //     */
     public function view(User $user, Center $center)
     {
-        return true;
+                    if(in_array('View_center',Auth::user()->getpermission()))
+                return true;
+
+            else
+                return false;
+
     }
 //
 //    /**
@@ -61,9 +66,7 @@ class CenterPolicy
     public function create(User $user)
     {
         if(in_array('Create_center',$user->getpermission()) || $user->email=='admin@gmail.com')
-
-        {return true;}
-
+        return true;
         else
             return false;
     }

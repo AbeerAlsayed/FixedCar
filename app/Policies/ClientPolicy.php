@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Service;
+use App\Models\Client;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ServicePolicy
+class ClientPolicy
 {
     use HandlesAuthorization;
 
@@ -18,19 +18,22 @@ class ServicePolicy
      */
     public function viewAny(User $user)
     {
-        return true;
+        if(in_array('View_client',$user->getpermission()) || $user->email=='admin@gmail.com')
+            return true;
+        else
+            return false;
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Service  $service
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Service $service)
+    public function view(User $user, Client $client)
     {
-        if(in_array('View_service',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('View_client',$user->getpermission()) || $user->email=='admin@gmail.com')
             return true;
         else
             return false;
@@ -44,10 +47,8 @@ class ServicePolicy
      */
     public function create(User $user)
     {
-        if(in_array('Create_service',$user->getpermission()) || $user->email=='admin@gmail.com')
-
-        return true;
-
+        if(in_array('Create_client',$user->getpermission()) || $user->email=='admin@gmail.com')
+            return true;
         else
             return false;
     }
@@ -56,15 +57,13 @@ class ServicePolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Service  $service
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Service $service)
+    public function update(User $user, Client $client)
     {
-        if(in_array('Edit_service',$user->getpermission()) || $user->email=='admin@gmail.com')
-
-        {return true;}
-
+        if(in_array('Edit_client',$user->getpermission()) || $user->email=='admin@gmail.com')
+            return true;
         else
             return false;
     }
@@ -73,15 +72,13 @@ class ServicePolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Service  $service
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Service $service)
+    public function delete(User $user, Client $client)
     {
-        if(in_array('Delete_service',$user->getpermission()) || $user->email=='admin@gmail.com')
-
-        return true;
-
+        if(in_array('Delete_client',$user->getpermission()) || $user->email=='admin@gmail.com')
+            return true;
         else
             return false;
     }
@@ -90,35 +87,29 @@ class ServicePolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Service  $service
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Service $service)
+    public function restore(User $user, Client $client)
     {
-        if(in_array('Store_service',$user->getpermission()) || $user->email=='admin@gmail.com')
-
+        if(in_array('Store_client',$user->getpermission()) || $user->email=='admin@gmail.com')
             return true;
-
         else
             return false;
-
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Service  $service
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Service $service)
+    public function forceDelete(User $user, Client $client)
     {
-        if(in_array('Delete_service',$user->getpermission()) || $user->email=='admin@gmail.com')
-
+        if(in_array('Delete_client',$user->getpermission()) || $user->email=='admin@gmail.com')
             return true;
-
         else
             return false;
-
     }
 }
