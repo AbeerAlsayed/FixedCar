@@ -54,7 +54,7 @@ class CenterPolicy
 
             else
                 return false;
-        return true;
+
     }
 //
 //    /**

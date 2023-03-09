@@ -31,9 +31,7 @@ class ServicePolicy
     public function view(User $user, Service $service)
     {
         if(in_array('View_service',$user->getpermission()) || $user->email=='admin@gmail.com')
-
             return true;
-
         else
             return false;
     }
