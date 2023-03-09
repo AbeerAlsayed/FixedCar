@@ -61,9 +61,7 @@ class CenterPolicy
     public function create(User $user)
     {
         if(in_array('Create_center',$user->getpermission()) || $user->email=='admin@gmail.com')
-
-        {return true;}
-
+        return true;
         else
             return false;
     }
