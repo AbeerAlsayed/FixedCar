@@ -23,8 +23,8 @@ class Service extends Model
         return $this->belongsToMany(Center::class,'center_service');
     }
 
-//    public function Reports():BelongsToMany
-//    {
-//        return $this->belongsToMany(Report::class,'report_service');
-//    }
+    public function Reports():BelongsToMany
+    {
+        return $this->belongsToMany(Report::class,'report_service');
+    }
 }

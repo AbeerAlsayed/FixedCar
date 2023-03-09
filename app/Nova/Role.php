@@ -48,6 +48,7 @@ class Role extends Resource
                 ->rules('required', 'max:255'),
             BelongsToMany::make('Permission','Permissions',Permission::class),
             BelongsToMany::make('User','users',User::class),
+
         ];
     }
 

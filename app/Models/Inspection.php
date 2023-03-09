@@ -17,7 +17,7 @@ class Inspection extends Model
 
     public function client(): BelongsTo
     {
-        return $this->belongsTo(Client::class, 'Client_id');
+        return $this->belongsTo(Client::class, 'client_id');
     }
 
     public function user(): BelongsTo

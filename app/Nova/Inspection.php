@@ -54,7 +54,7 @@ class Inspection extends Resource
                 'Finished' => 'Finished',
             ])->default('Pending')->required(),
             Markdown::make('Description','description'),
-            HasMany::make('Vehicles','Vehicles',Vehicle::class),
+//            HasMany::make('Vehicles','Vehicles',Vehicle::class),
             BelongsTo::make('Client','client',Client::class),
             BelongsTo::make('User','user',User::class),
             BelongsTo::make('Center','Center',Center::class),

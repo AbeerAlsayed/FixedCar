@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Metrics\NewVehicle;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
@@ -61,7 +62,7 @@ class Vehicle extends Resource
      */
     public function cards(NovaRequest $request)
     {
-        return [];
+        return [new NewVehicle()];
     }
 
     /**

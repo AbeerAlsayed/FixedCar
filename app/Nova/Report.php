@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Metrics\NewReport;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
@@ -63,7 +64,7 @@ class Report extends Resource
      */
     public function cards(NovaRequest $request)
     {
-        return [];
+        return [new NewReport()];
     }
 
     /**
@@ -97,5 +98,9 @@ class Report extends Resource
     public function actions(NovaRequest $request)
     {
         return [];
+    }
+    public static function authorizedToCreate(Request $request): bool
+    {
+        return false;
     }
 }

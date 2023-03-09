@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Metrics\NewCenter;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\HasMany;
@@ -63,7 +64,7 @@ class Center extends Resource
      */
     public function cards(NovaRequest $request)
     {
-        return [];
+        return [new NewCenter()];
     }
 
     /**
