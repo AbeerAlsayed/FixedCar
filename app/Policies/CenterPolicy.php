@@ -49,6 +49,11 @@ class CenterPolicy
 //     */
     public function view(User $user, Center $center)
     {
+                    if(in_array('View_center',Auth::user()->getpermission()))
+                return true;
+
+            else
+                return false;
         return true;
     }
 //

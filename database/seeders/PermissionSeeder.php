@@ -23,12 +23,15 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'Edit_bill']);
 
 //      Permission Center
+        Permission::create(['name' => 'View_center']);
         Permission::create(['name' => 'Create_center']);
         Permission::create(['name' => 'Delete_center']);
         Permission::create(['name' => 'Store_center']);
         Permission::create(['name' => 'Edit_center']);
 
         // Permission Service
+
+        Permission::create(['name' => 'View_service']);
         Permission::create(['name' => 'Create_service']);
         Permission::create(['name' => 'Delete_service']);
         Permission::create(['name' => 'Store_service']);
