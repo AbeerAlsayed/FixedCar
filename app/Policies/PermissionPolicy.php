@@ -18,7 +18,7 @@ class PermissionPolicy
      */
     public function viewAny(User $user)
     {
-        if(in_array('View_permission',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('View_permission',$user->getpermission()))
             return true;
         else
             return false;
@@ -33,7 +33,7 @@ class PermissionPolicy
      */
     public function view(User $user, Permission $permission)
     {
-        if(in_array('View_permission',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('View_permission',$user->getpermission()))
             return true;
         else
             return false;
@@ -47,7 +47,7 @@ class PermissionPolicy
      */
     public function create(User $user)
     {
-        if(in_array('Create_permission',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Create_permission',$user->getpermission()))
             return true;
         else
             return false;
@@ -62,7 +62,7 @@ class PermissionPolicy
      */
     public function update(User $user, Permission $permission)
     {
-        if(in_array('Edit_permission',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Edit_permission',$user->getpermission()))
             return true;
         else
             return false;
@@ -77,7 +77,7 @@ class PermissionPolicy
      */
     public function delete(User $user, Permission $permission)
     {
-        if(in_array('Delete_permission',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Delete_permission',$user->getpermission()))
             return true;
         else
             return false;
@@ -92,7 +92,7 @@ class PermissionPolicy
      */
     public function restore(User $user, Permission $permission)
     {
-        if(in_array('Store_permission',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Store_permission',$user->getpermission()))
             return true;
         else
             return false;
@@ -107,7 +107,7 @@ class PermissionPolicy
      */
     public function forceDelete(User $user, Permission $permission)
     {
-        if(in_array('Delete_permission',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Delete_permission',$user->getpermission()))
             return true;
         else
             return false;

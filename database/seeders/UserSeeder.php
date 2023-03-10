@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,6 +16,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+
         User::create([
             'name' => 'ahmad',
             'email' => 'ahmad@gmail.com',
@@ -46,12 +48,6 @@ class UserSeeder extends Seeder
             'center_id' => 0,
             'warehouse_id'=>0
         ]);
-        User::create([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('admin'),
-            'center_id' => 0,
-            'warehouse_id'=>0
-        ]);
+
     }
 }

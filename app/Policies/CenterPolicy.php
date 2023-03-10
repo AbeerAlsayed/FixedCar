@@ -31,11 +31,6 @@ class CenterPolicy
     public function viewAny(User $user)
     {
 
-//            if(in_array('view_center',Auth::user()->getpermission()))
-//                return true;
-//
-//            else
-//                return false;
         return true;
     }
 
@@ -65,7 +60,7 @@ class CenterPolicy
 //     */
     public function create(User $user)
     {
-        if(in_array('Create_center',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Create_center',$user->getpermission()) )
         return true;
         else
             return false;
@@ -81,7 +76,7 @@ class CenterPolicy
 //     */
     public function update(User $user, Center $center)
     {
-        if(in_array('Edit_center',$user->getpermission())|| $user->email=='admin@gmail.com')
+        if(in_array('Edit_center',$user->getpermission()))
             return true;
 
         else
@@ -97,7 +92,7 @@ class CenterPolicy
 //     */
     public function delete(User $user, Center $center)
     {
-        if(in_array('Delete_center',$user->getpermission())|| $user->email=='admin@gmail.com')
+        if(in_array('Delete_center',$user->getpermission()))
             return true;
 
         else
@@ -113,7 +108,7 @@ class CenterPolicy
 //     */
     public function restore(User $user, Center $center)
     {
-        if(in_array('Store_center',$user->getpermission())|| $user->email=='admin@gmail.com')
+        if(in_array('Store_center',$user->getpermission()))
             return true;
 
         else
@@ -129,9 +124,8 @@ class CenterPolicy
 //     */
     public function forceDelete(User $user, Center $center)
     {
-        if(in_array('Delete_center',Auth::user()->getpermission())|| $user->email=='admin@gmail.com')
+        if(in_array('Delete_center',Auth::user()->getpermission()))
             return true;
-
         else
             return false;
     }

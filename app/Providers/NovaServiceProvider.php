@@ -33,7 +33,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
-        Nova::initialPath('/resources/users');
+//        Nova::initialPath('/resources/users');
         Nova::mainMenu(function (Request $request) {
             return [
                 MenuSection::dashboard(Main::class)->icon('chart-bar'),

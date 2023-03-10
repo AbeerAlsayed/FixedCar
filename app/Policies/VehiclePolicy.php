@@ -18,7 +18,7 @@ class VehiclePolicy
      */
     public function viewAny(User $user)
     {
-        if(in_array('View_Vehicle',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('View_Vehicle',$user->getpermission()))
             return true;
         else
             return false;
@@ -33,7 +33,7 @@ class VehiclePolicy
      */
     public function view(User $user, Vehicle $vehicle)
     {
-        if(in_array('View_Vehicle',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('View_Vehicle',$user->getpermission()))
             return true;
         else
             return false;
@@ -47,7 +47,7 @@ class VehiclePolicy
      */
     public function create(User $user)
     {
-        if(in_array('Create_Vehicle',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Create_Vehicle',$user->getpermission()))
             return true;
         else
             return false;
@@ -62,7 +62,7 @@ class VehiclePolicy
      */
     public function update(User $user, Vehicle $vehicle)
     {
-        if(in_array('Edit_Vehicle',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Edit_Vehicle',$user->getpermission()))
             return true;
         else
             return false;
@@ -77,7 +77,7 @@ class VehiclePolicy
      */
     public function delete(User $user, Vehicle $vehicle)
     {
-        if(in_array('Delete_Vehicle',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Delete_Vehicle',$user->getpermission()))
             return true;
         else
             return false;
@@ -92,7 +92,7 @@ class VehiclePolicy
      */
     public function restore(User $user, Vehicle $vehicle)
     {
-        if(in_array('Store_Vehicle',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Store_Vehicle',$user->getpermission()))
             return true;
         else
             return false;
@@ -107,7 +107,7 @@ class VehiclePolicy
      */
     public function forceDelete(User $user, Vehicle $vehicle)
     {
-        if(in_array('Delete_Vehicle',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Delete_Vehicle',$user->getpermission()))
             return true;
         else
             return false;

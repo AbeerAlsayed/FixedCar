@@ -18,7 +18,7 @@ class ReportPolicy
      */
     public function viewAny(User $user)
     {
-        if(in_array('View_Report',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('View_Report',$user->getpermission()))
             return true;
         else
             return false;
@@ -33,7 +33,7 @@ class ReportPolicy
      */
     public function view(User $user, Report $report)
     {
-        if(in_array('View_Report',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('View_Report',$user->getpermission()))
             return true;
         else
             return false;
@@ -47,7 +47,7 @@ class ReportPolicy
      */
     public function create(User $user)
     {
-        if(in_array('Create_Report',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Create_Report',$user->getpermission()))
             return true;
         else
             return false;
@@ -62,7 +62,7 @@ class ReportPolicy
      */
     public function update(User $user, Report $report)
     {
-        if(in_array('Edit_Report',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Edit_Report',$user->getpermission()))
             return true;
         else
             return false;
@@ -77,7 +77,7 @@ class ReportPolicy
      */
     public function delete(User $user, Report $report)
     {
-        if(in_array('Delete_Report',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Delete_Report',$user->getpermission()))
             return true;
         else
             return false;
@@ -92,7 +92,7 @@ class ReportPolicy
      */
     public function restore(User $user, Report $report)
     {
-        if(in_array('Store_Report',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Store_Report',$user->getpermission()))
             return true;
         else
             return false;
@@ -107,7 +107,7 @@ class ReportPolicy
      */
     public function forceDelete(User $user, Report $report)
     {
-        if(in_array('Delete_Report',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Delete_Report',$user->getpermission()))
             return true;
         else
             return false;

@@ -30,7 +30,7 @@ class ServicePolicy
      */
     public function view(User $user, Service $service)
     {
-        if(in_array('View_service',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('View_service',$user->getpermission()))
             return true;
         else
             return false;
@@ -44,7 +44,7 @@ class ServicePolicy
      */
     public function create(User $user)
     {
-        if(in_array('Create_service',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Create_service',$user->getpermission()))
 
         return true;
 
@@ -61,7 +61,7 @@ class ServicePolicy
      */
     public function update(User $user, Service $service)
     {
-        if(in_array('Edit_service',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Edit_service',$user->getpermission()))
 
         {return true;}
 
@@ -78,10 +78,8 @@ class ServicePolicy
      */
     public function delete(User $user, Service $service)
     {
-        if(in_array('Delete_service',$user->getpermission()) || $user->email=='admin@gmail.com')
-
+        if(in_array('Delete_service',$user->getpermission()))
         return true;
-
         else
             return false;
     }
@@ -95,10 +93,8 @@ class ServicePolicy
      */
     public function restore(User $user, Service $service)
     {
-        if(in_array('Store_service',$user->getpermission()) || $user->email=='admin@gmail.com')
-
+        if(in_array('Store_service',$user->getpermission()))
             return true;
-
         else
             return false;
 
@@ -113,10 +109,8 @@ class ServicePolicy
      */
     public function forceDelete(User $user, Service $service)
     {
-        if(in_array('Delete_service',$user->getpermission()) || $user->email=='admin@gmail.com')
-
+        if(in_array('Delete_service',$user->getpermission()))
             return true;
-
         else
             return false;
 

@@ -18,7 +18,7 @@ class BillPolicy
      */
     public function viewAny(User $user)
     {
-        if(in_array('View_bill',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('View_bill',$user->getpermission()))
 
             return true;
 
@@ -35,7 +35,7 @@ class BillPolicy
      */
     public function view(User $user, Bill $bill)
     {
-        if(in_array('View_bill',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('View_bill',$user->getpermission()))
 
             return true;
 
@@ -51,7 +51,7 @@ class BillPolicy
      */
     public function create(User $user)
     {
-        if(in_array('Create_bill',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Create_bill',$user->getpermission()))
 
             return true;
 
@@ -68,7 +68,7 @@ class BillPolicy
      */
     public function update(User $user, Bill $bill)
     {
-        if(in_array('Edit_bill',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Edit_bill',$user->getpermission()))
 
         {return true;}
 
@@ -85,7 +85,7 @@ class BillPolicy
      */
     public function delete(User $user, Bill $bill)
     {
-        if(in_array('Delete_bill',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Delete_bill',$user->getpermission()))
 
             return true;
 
@@ -102,7 +102,7 @@ class BillPolicy
      */
     public function restore(User $user, Bill $bill)
     {
-        if(in_array('Store_bill',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Store_bill',$user->getpermission()))
 
             return true;
 
@@ -119,7 +119,7 @@ class BillPolicy
      */
     public function forceDelete(User $user, Bill $bill)
     {
-        if(in_array('Delete_bill',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Delete_bill',$user->getpermission()))
 
             return true;
 

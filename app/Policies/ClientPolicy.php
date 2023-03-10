@@ -18,10 +18,8 @@ class ClientPolicy
      */
     public function viewAny(User $user)
     {
-        if(in_array('View_client',$user->getpermission()) || $user->email=='admin@gmail.com')
             return true;
-        else
-            return false;
+
     }
 
     /**
@@ -33,7 +31,7 @@ class ClientPolicy
      */
     public function view(User $user, Client $client)
     {
-        if(in_array('View_client',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('View_client',$user->getpermission()))
             return true;
         else
             return false;
@@ -47,7 +45,7 @@ class ClientPolicy
      */
     public function create(User $user)
     {
-        if(in_array('Create_client',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Create_client',$user->getpermission()))
             return true;
         else
             return false;
@@ -62,7 +60,7 @@ class ClientPolicy
      */
     public function update(User $user, Client $client)
     {
-        if(in_array('Edit_client',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Edit_client',$user->getpermission()))
             return true;
         else
             return false;
@@ -77,7 +75,7 @@ class ClientPolicy
      */
     public function delete(User $user, Client $client)
     {
-        if(in_array('Delete_client',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Delete_client',$user->getpermission()))
             return true;
         else
             return false;
@@ -92,7 +90,7 @@ class ClientPolicy
      */
     public function restore(User $user, Client $client)
     {
-        if(in_array('Store_client',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Store_client',$user->getpermission()))
             return true;
         else
             return false;
@@ -107,7 +105,7 @@ class ClientPolicy
      */
     public function forceDelete(User $user, Client $client)
     {
-        if(in_array('Delete_client',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Delete_client',$user->getpermission()))
             return true;
         else
             return false;

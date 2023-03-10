@@ -17,7 +17,7 @@ class UserPolicy
      */
     public function viewAny(User $user)
     {
-        if(in_array('View_User',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('View_User',$user->getpermission()))
             return true;
         else
             return false;
@@ -32,7 +32,7 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
-        if(in_array('View_User',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('View_User',$user->getpermission()))
             return true;
         else
             return false;
@@ -46,7 +46,7 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        if(in_array('Create_User',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Create_User',$user->getpermission()))
             return true;
         else
             return false;
@@ -61,7 +61,7 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        if(in_array('Edit_User',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Edit_User',$user->getpermission()))
             return true;
         else
             return false;
@@ -76,7 +76,7 @@ class UserPolicy
      */
     public function delete(User $user, User $model)
     {
-        if(in_array('Delete_User',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Delete_User',$user->getpermission()))
             return true;
         else
             return false;
@@ -91,7 +91,7 @@ class UserPolicy
      */
     public function restore(User $user, User $model)
     {
-        if(in_array('Store_User',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Store_User',$user->getpermission()))
             return true;
         else
             return false;
@@ -106,7 +106,7 @@ class UserPolicy
      */
     public function forceDelete(User $user, User $model)
     {
-        if(in_array('Delete_User',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Delete_User',$user->getpermission()))
             return true;
         else
             return false;

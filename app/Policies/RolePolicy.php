@@ -18,7 +18,7 @@ class RolePolicy
      */
     public function viewAny(User $user)
     {
-        if(in_array('View_Role',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('View_Role',$user->getpermission()))
             return true;
         else
             return false;
@@ -33,7 +33,7 @@ class RolePolicy
      */
     public function view(User $user, Role $role)
     {
-        if(in_array('View_Role',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('View_Role',$user->getpermission()))
             return true;
         else
             return false;
@@ -47,7 +47,7 @@ class RolePolicy
      */
     public function create(User $user)
     {
-        if(in_array('Create_Role',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Create_Role',$user->getpermission()))
             return true;
         else
             return false;
@@ -62,7 +62,7 @@ class RolePolicy
      */
     public function update(User $user, Role $role)
     {
-        if(in_array('Edit_Role',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Edit_Role',$user->getpermission()))
             return true;
         else
             return false;
@@ -77,7 +77,7 @@ class RolePolicy
      */
     public function delete(User $user, Role $role)
     {
-        if(in_array('Delete_Role',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Delete_Role',$user->getpermission()))
             return true;
         else
             return false;
@@ -92,7 +92,7 @@ class RolePolicy
      */
     public function restore(User $user, Role $role)
     {
-        if(in_array('Store_Role',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Store_Role',$user->getpermission()))
             return true;
         else
             return false;
@@ -107,7 +107,7 @@ class RolePolicy
      */
     public function forceDelete(User $user, Role $role)
     {
-        if(in_array('Delete_Role',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Delete_Role',$user->getpermission()) )
             return true;
         else
             return false;

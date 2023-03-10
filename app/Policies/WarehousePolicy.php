@@ -18,7 +18,7 @@ class WarehousePolicy
      */
     public function viewAny(User $user)
     {
-        if(in_array('View_Warehouse',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('View_Warehouse',$user->getpermission()))
             return true;
         else
             return false;
@@ -33,7 +33,7 @@ class WarehousePolicy
      */
     public function view(User $user, Warehouse $warehouse)
     {
-        if(in_array('View_Warehouse',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('View_Warehouse',$user->getpermission()))
             return true;
         else
             return false;
@@ -47,7 +47,7 @@ class WarehousePolicy
      */
     public function create(User $user)
     {
-        if(in_array('Create_Warehouse',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Create_Warehouse',$user->getpermission()))
             return true;
         else
             return false;
@@ -62,7 +62,7 @@ class WarehousePolicy
      */
     public function update(User $user, Warehouse $warehouse)
     {
-        if(in_array('Edit_Warehouse',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Edit_Warehouse',$user->getpermission()))
             return true;
         else
             return false;
@@ -77,7 +77,7 @@ class WarehousePolicy
      */
     public function delete(User $user, Warehouse $warehouse)
     {
-        if(in_array('Delete_Warehouse',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Delete_Warehouse',$user->getpermission()))
             return true;
         else
             return false;
@@ -92,7 +92,7 @@ class WarehousePolicy
      */
     public function restore(User $user, Warehouse $warehouse)
     {
-        if(in_array('Store_Warehouse',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Store_Warehouse',$user->getpermission()))
             return true;
         else
             return false;
@@ -107,7 +107,7 @@ class WarehousePolicy
      */
     public function forceDelete(User $user, Warehouse $warehouse)
     {
-        if(in_array('Delete_Warehouse',$user->getpermission()) || $user->email=='admin@gmail.com')
+        if(in_array('Delete_Warehouse',$user->getpermission()))
             return true;
         else
             return false;
