@@ -40,6 +40,11 @@ class User extends Resource
         'id', 'name', 'email',
     ];
 
+    public function subtitle()
+    {
+        return $this->email;
+    }
+
     /**
      * Get the fields displayed by the resource.
      *

@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Filters\InspectionState;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
@@ -81,7 +82,9 @@ class Inspection extends Resource
      */
     public function filters(NovaRequest $request)
     {
-        return [];
+        return [
+            new InspectionState(),
+        ];
     }
 
     /**
