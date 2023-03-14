@@ -5,6 +5,7 @@ namespace App\Nova;
 
 
 use App\Nova\Metrics\NewUser;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
@@ -129,4 +130,5 @@ class User extends Resource
     {
         return [];
     }
+
 }

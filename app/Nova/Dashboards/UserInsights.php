@@ -2,6 +2,11 @@
 
 namespace App\Nova\Dashboards;
 
+use App\Nova\Metrics\NewCenter;
+use App\Nova\Metrics\NewClient;
+use App\Nova\Metrics\NewRevenue;
+use App\Nova\Metrics\NewUser;
+use App\Nova\Metrics\NewVehicle;
 use App\Nova\Report;
 use App\Nova\User;
 use App\Nova\Vehicle;
@@ -17,9 +22,11 @@ class UserInsights extends Dashboard
     public function cards()
     {
         return [
-            User::make(),
-//            Report::make(),
-//            Vehicle::make(),
+            new NewUser(),
+            new NewVehicle(),
+            new NewCenter(),
+            new NewClient(),
+//            new NewRevenue(),
         ];
     }
 
@@ -34,6 +41,6 @@ class UserInsights extends Dashboard
     }
     public function name()
     {
-        return 'User Insights';
+        return 'Dashboard';
     }
 }
