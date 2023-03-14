@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Filters\CenterName;
 use App\Nova\Filters\InspectionState;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
@@ -83,7 +84,7 @@ class Inspection extends Resource
     public function filters(NovaRequest $request)
     {
         return [
-            new InspectionState(),
+            new InspectionState(),new CenterName(),
         ];
     }
 
