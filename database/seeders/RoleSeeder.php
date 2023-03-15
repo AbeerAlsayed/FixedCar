@@ -30,25 +30,56 @@ class RoleSeeder extends Seeder
             'center_id' => 0,
             'warehouse_id'=>0
         ]);
+// permission for Admin
 
         $role = Role::all();
         $user = User::all();
 
+        foreach ($user as $usr) {
+            if ($usr->name == 'admin') {
+                DB::table('user_role')->insert([
+                    'user_id' => $usr->id,'role_id'=>1]);
+            }
+            for ($p = 1; $p <= 60; $p++) {
+                DB::table('role_permission')->insert(['role_id'=>1,'permission_id' => $p]);
+            }}
+//permission for accountant
 
-        foreach ($role as $rol) {
-            if ($rol->name == 'Admin') {
-                for ($p = 1; $p <= 60; $p++) {
-                    DB::table('role_permission')->insert([
-                        'role_id' => $rol->id,
-                        'permission_id' => $p]);
-                }
-            foreach ($user as $usr) {
-                if ($usr->name == 'admin') {
-                    DB::table('user_role')->insert([
-                        'user_id' => $usr->id,
-                        'role_id' => $rol->id]);
-                }}
+        for ($p = 1; $p <= 8; $p++) {
+            DB::table('role_permission')->insert(['role_id'=>4,'permission_id' => $p]);
+        }
+        foreach ($user as $usr) {
+            if ($usr->Roles == 'accountant') {
+                DB::table('user_role')->insert([
+                    'user_id' => $usr->id]);
             }
         }
-    }
-}
+//   permission for accountant
+        for ($p = 7; $p <= 19; $p++) {
+            DB::table('role_permission')->insert(['role_id'=>3,'permission_id' => $p]);
+        }
+        DB::table('role_permission')->insert(['role_id'=>3,'permission_id' => 30]);
+        foreach ($user as $usr) {
+            if ($usr->Roles == 'Technical') {
+                DB::table('user_role')->insert([
+                    'user_id' => $usr->id]);
+            }
+        }
+//   permission for manager center
+        for ($p = 7; $p <= 45; $p++) {
+            DB::table('role_permission')->insert(['role_id'=>2,'permission_id' => $p]);
+        }
+        DB::table('role_permission')->insert(['role_id'=>2,'permission_id' => 30]);
+        foreach ($user as $usr) {
+            if ($usr->Roles == 'Manager_Center') {
+                DB::table('user_role')->insert([
+                    'user_id' => $usr->id]);
+            }
+        }
+
+
+    }}
+
+
+
+
