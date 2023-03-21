@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('status');
             $table->string('description')->nullable();
-            $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('vehicle_id');
+//            $table->unsignedBigInteger('client_id');
             $table->unsignedBigInteger('center_id');
             $table->unsignedBigInteger('user_id');
             $table->softDeletes();

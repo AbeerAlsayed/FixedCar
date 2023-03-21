@@ -15,16 +15,16 @@ class ClientSeeder extends Seeder
      */
     public function run()
     {
-        Client::create([
-            'name'=>'MHD',
-            'phone_number'=>'0937124259',
-            'address'=>'Almeedain'
-        ]);
-
-        Client::create([
-            'name'=>'Saeed',
-            'phone_number'=>'0999999999',
-            'address'=>'ALmazaa'
-        ]);
+//        Client::create([
+//            'name'=>'MHD',
+//            'phone_number'=>'0937124259',
+//            'address'=>'Almeedain'
+//        ]);
+//
+//        Client::create([
+//            'name'=>'Saeed',
+//            'phone_number'=>'0999999999',
+//            'address'=>'ALmazaa'
+//        ]);
     }
 }

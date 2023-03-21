@@ -48,7 +48,21 @@ class Report extends Resource
             ID::make()->sortable(),
             Markdown::make('Description','description'),
             BelongsTo::make('Vehicle','vehicle',Vehicle::class),
-            BelongsTo::make('Inspection','inspections',Inspection::class),
+            BelongsTo::make('Inspection','inspections',Inspection::class) ->displayUsing(function ($name) {
+
+                $jsonUserData=$name
+                    ->join('vehicles', 'vehicles.id', '=', 'inspections.vehicle_id')
+                    ->where('inspections.id', '=', $name->id)
+//                   ->where('vehicles.client_id', '=', $name->id)
+                    ->select('vehicles.brand', 'inspections.name')
+                    ->get()
+                    ->pluck('brand', 'name')
+                ;
+                $userData = json_decode($jsonUserData, true);
+                return array_map(function($item) {
+                    return (array)$item;
+                }, $userData);
+            }),
             BelongsTo::make('SparePart','SpareParts',SparePart::class),
             BelongsToMany::make('Service','Services',Service::class),
             BelongsToMany::make('User','Users',User::class),
@@ -99,8 +113,8 @@ class Report extends Resource
     {
         return [];
     }
-    public static function authorizedToCreate(Request $request): bool
-    {
-        return false;
-    }
+//    public static function authorizedToCreate(Request $request): bool
+//    {
+//        return false;
+//    }
 }

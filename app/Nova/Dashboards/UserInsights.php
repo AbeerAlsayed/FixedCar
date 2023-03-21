@@ -26,7 +26,7 @@ class UserInsights extends Dashboard
             new NewVehicle(),
             new NewCenter(),
             new NewClient(),
-//            new NewRevenue(),
+
         ];
     }
 

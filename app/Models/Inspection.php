@@ -15,14 +15,19 @@ class Inspection extends Model
 
     protected $guarded = ['id'];
 
-    public function client(): BelongsTo
-    {
-        return $this->belongsTo(Client::class, 'client_id');
-    }
+//    public function client(): BelongsTo
+//    {
+//        return $this->belongsTo(Client::class, 'client_id');
+//    }
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function vehicle(): BelongsTo
+    {
+        return $this->belongsTo(Vehicle::class);
     }
 
     public function Center(): BelongsTo
@@ -32,6 +37,6 @@ class Inspection extends Model
 
     public function Reports(): hasOne
     {
-        return $this->hasOne(Report::class ,'inspection_id');
+        return $this->hasOne(Report::class );
     }
 }

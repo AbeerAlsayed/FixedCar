@@ -16,7 +16,7 @@ class Vehicle extends Model
 
     protected $guarded = ['id'];
 
-       public function clients():BelongsTo
+       public function client():BelongsTo
     {
         return $this->belongsTo(Client::class ,'client_id');
     }
@@ -24,5 +24,9 @@ class Vehicle extends Model
     public function Reports():HasMany
     {
         return $this->hasMany(Report::class);
+    }
+    public function inspection(): HasMany
+    {
+        return $this->hasMany(Inspection::class);
     }
 }

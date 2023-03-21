@@ -22,14 +22,14 @@ class UserSeeder extends Seeder
             'email' => 'ahmad@gmail.com',
             'password' => Hash::make('ahmad'),
             'center_id' => 0,
-            'warehouse_id'=>0
+//            'warehouse_id'=>0
         ]);
         User::create([
             'name' => 'anas',
             'email' => 'asna@gmail.com',
             'password' => Hash::make('anas'),
             'center_id' => 0,
-            'warehouse_id'=>0
+//            'warehouse_id'=>0
             ]);
 
 
@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
             'email' => 'abeer@gmail.com',
             'password' => Hash::make('abeer'),
             'center_id' => 0,
-            'warehouse_id'=>0
+//            'warehouse_id'=>0
         ]);
 
         User::create([
@@ -46,7 +46,7 @@ class UserSeeder extends Seeder
             'email' => 'tamador@gmail.com',
             'password' => Hash::make('123'),
             'center_id' => 0,
-            'warehouse_id'=>0
+//            'warehouse_id'=>0
         ]);
 
     }
