@@ -47,7 +47,7 @@ class Client extends Resource
             Text::make('Client Name', 'name'),
             Text::make('Phone Number','phone_number'),
             Text::make('Address','address'),
-            HasMany::make('Inspections','Inspections',Inspection::class),
+//            HasMany::make('Inspections','Inspections',Inspection::class),
             HasMany::make('Vehicles','Vehicles',Vehicle::class)
         ];
     }

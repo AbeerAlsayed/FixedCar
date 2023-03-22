@@ -53,10 +53,10 @@ class User extends Authenticatable
         return $this->belongsTo(Center::class,'center_id');
     }
 
-    public function Warehouse():belongsTo
-    {
-        return $this->belongsTo(Warehouse::class,'warehouse_id');
-    }
+//    public function Warehouse():belongsTo
+//    {
+//        return $this->belongsTo(Warehouse::class,'warehouse_id');
+//    }
 
     public function Inspections():HasMany
     {

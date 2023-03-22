@@ -36,12 +36,12 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 //        Nova::initialPath('/resources/users');
         Nova::mainMenu(function (Request $request) {
             return [
-                MenuSection::dashboard(UserInsights::class)->icon('home'),
+                MenuSection::dashboard(Main::class)->icon('home'),
 
                 MenuSection::make('Vehicles', [
                     MenuItem::resource(Client::class),
                     MenuItem::resource(Vehicle::class),
-                    MenuItem::resource(Inspection::class),
+//                    MenuItem::resource(Inspection::class),
                 ])->icon('pencil-alt')->collapsable(),
                 MenuSection::make('Document', [
                     MenuItem::resource(Report::class),

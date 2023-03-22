@@ -20,7 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedBigInteger('center_id')->nullable();
-            $table->unsignedBigInteger('warehouse_id')->nullable();
+//            $table->unsignedBigInteger('warehouse_id')->nullable();
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

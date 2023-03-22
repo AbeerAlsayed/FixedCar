@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08fb3116637009141efc35311dab22d8",
+    "content-hash": "0dfdb899f589f58afbf63baeeb5942db",
     "packages": [
         {
             "name": "brick/math",
@@ -2926,6 +2926,51 @@
                 }
             ],
             "time": "2023-03-03T07:45:00+00:00"
+        },
+        {
+            "name": "orlyapps/nova-belongsto-depend",
+            "version": "3.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orlyapps/nova-belongsto-depend.git",
+                "reference": "796e6ec1d7447e94995b55236fa5a6b46749547f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orlyapps/nova-belongsto-depend/zipball/796e6ec1d7447e94995b55236fa5a6b46749547f",
+                "reference": "796e6ec1d7447e94995b55236fa5a6b46749547f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Orlyapps\\NovaBelongsToDepend\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Orlyapps\\NovaBelongsToDepend\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova field.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "support": {
+                "issues": "https://github.com/orlyapps/nova-belongsto-depend/issues",
+                "source": "https://github.com/orlyapps/nova-belongsto-depend/tree/3.0.4"
+            },
+            "time": "2022-06-21T16:03:04+00:00"
         },
         {
             "name": "phpoption/phpoption",

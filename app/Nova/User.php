@@ -76,7 +76,7 @@ class User extends Resource
 
             BelongsTo::make('Center' , 'center' ,Center::class),
 
-            BelongsTo::make('Warehouse','Warehouse',Warehouse::class),
+//            BelongsTo::make('Warehouse','Warehouse',Warehouse::class),
 
             HasMany::make('Inspections','Inspections',Inspection::class),
 

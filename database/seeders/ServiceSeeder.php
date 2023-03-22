@@ -18,7 +18,15 @@ class ServiceSeeder extends Seeder
     public function run()
     {
         DB::table('services')->insert([
-            'type' => Str::random(10),
+            'type'=>'Car oil change',
+            'price' => random_int(1000, 9999),
+        ]);
+        DB::table('services')->insert([
+            'type'=>'Changing car tires',
+            'price' => random_int(1000, 9999),
+        ]);
+        DB::table('services')->insert([
+            'type'=>'Car engine repair',
             'price' => random_int(1000, 9999),
         ]);
     }

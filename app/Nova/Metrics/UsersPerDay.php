@@ -2,11 +2,11 @@
 
 namespace App\Nova\Metrics;
 
-use App\Models\Service;
+use App\Nova\Client;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Metrics\Value;
+use Laravel\Nova\Metrics\Trend;
 
-class NewRevenue extends Value
+class UsersPerDay extends Trend
 {
     /**
      * Calculate the value of the metric.
@@ -16,7 +16,7 @@ class NewRevenue extends Value
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->sum($request, Service::class,'price');
+        return $this->countByDays($request, \App\Models\Client::class);
     }
 
     /**
@@ -27,14 +27,9 @@ class NewRevenue extends Value
     public function ranges()
     {
         return [
-            1 => __('1 Days'),
             30 => __('30 Days'),
             60 => __('60 Days'),
-            365 => __('365 Days'),
-            'TODAY' => __('Today'),
-            'MTD' => __('Month To Date'),
-            'QTD' => __('Quarter To Date'),
-            'YTD' => __('Year To Date'),
+            90 => __('90 Days'),
         ];
     }
 
@@ -46,5 +41,15 @@ class NewRevenue extends Value
     public function cacheFor()
     {
         // return now()->addMinutes(5);
+    }
+
+    /**
+     * Get the URI key for the metric.
+     *
+     * @return string
+     */
+    public function uriKey()
+    {
+        return 'users-per-day';
     }
 }

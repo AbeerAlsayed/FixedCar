@@ -18,21 +18,24 @@ class InspectionSeeder extends Seeder
         Inspection::create([
             'name'=>'Car oil change',
             'status' =>'Pending',
-            'Client_id'=>1,
+//            'Client_id'=>1,
             'center_id'=>1,
+            'vehicle_id'=>1,
             'user_id'=>1
         ]);
         Inspection::create([
             'name'=>'Car engine repair',
             'status' =>'Process',
-            'Client_id'=>2,
+//            'Client_id'=>2,
+            'vehicle_id'=>1,
             'center_id'=>1,
             'user_id'=>2
         ]);
         Inspection::create([
             'name'=>'Changing car tires',
             'status' =>'Finished',
-            'Client_id'=>3,
+//            'Client_id'=>3,
+            'vehicle_id'=>1,
             'center_id'=>1,
             'user_id'=>3
         ]);

@@ -28,7 +28,7 @@ class RoleSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => Hash::make('admin'),
             'center_id' => 0,
-            'warehouse_id'=>0
+//            'warehouse_id'=>0
         ]);
 
         $role = Role::all();
