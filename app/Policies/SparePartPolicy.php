@@ -18,6 +18,8 @@ class SparePartPolicy
      */
     public function viewAny(User $user)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('View_SparePart',$user->getpermission()))
             return true;
         else
@@ -33,6 +35,8 @@ class SparePartPolicy
      */
     public function view(User $user, SparePart $sparePart)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('View_SparePart',$user->getpermission()))
             return true;
         else
@@ -47,6 +51,8 @@ class SparePartPolicy
      */
     public function create(User $user)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Create_SparePart',$user->getpermission()))
             return true;
         else
@@ -62,6 +68,8 @@ class SparePartPolicy
      */
     public function update(User $user, SparePart $sparePart)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Edit_SparePart',$user->getpermission()))
             return true;
         else
@@ -77,6 +85,8 @@ class SparePartPolicy
      */
     public function delete(User $user, SparePart $sparePart)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Delete_SparePart',$user->getpermission()))
             return true;
         else
@@ -92,6 +102,8 @@ class SparePartPolicy
      */
     public function restore(User $user, SparePart $sparePart)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Store_SparePart',$user->getpermission()))
             return true;
         else
@@ -107,6 +119,8 @@ class SparePartPolicy
      */
     public function forceDelete(User $user, SparePart $sparePart)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Delete_SparePart',$user->getpermission()))
             return true;
         else

@@ -18,7 +18,19 @@ class InspectionPolicy
      */
     public function viewAny(User $user)
     {
+        if($user->getRoleadmin())
+            return true;
+
         if(in_array('View_inspection',$user->getpermission()))
+//        {
+//                $cent=$user->center;
+//                foreach ($cent->Inspections as $s)
+//                {
+//                   if($s->Center->id==$cent->id)
+//                       return $cent->id;
+//                }
+//
+////              }
             return true;
         else
             return false;
@@ -33,8 +45,13 @@ class InspectionPolicy
      */
     public function view(User $user, Inspection $inspection)
     {
-        if(in_array('View_inspection',$user->getpermission()))
+        if($user->getRoleadmin())
             return true;
+        if(in_array('View_inspection',$user->getpermission())) {
+            if ($inspection->Center->id == $user->center->id)
+                return $inspection->Center->id;
+        }
+
         else
             return false;
     }
@@ -47,7 +64,12 @@ class InspectionPolicy
      */
     public function create(User $user)
     {
+
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Create_inspection',$user->getpermission()))
+//            if ($user->Inspections->Center->id == $user->center->id)
+//                return $user->center->id;
             return true;
         else
             return false;
@@ -62,8 +84,12 @@ class InspectionPolicy
      */
     public function update(User $user, Inspection $inspection)
     {
-        if(in_array('Edit_inspection',$user->getpermission()))
+        if($user->getRoleadmin())
             return true;
+        if(in_array('Edit_inspection',$user->getpermission())) {
+            if ($inspection->Center->id == $user->center->id)
+                return $inspection->Center->id;
+        }
         else
             return false;
     }
@@ -77,8 +103,14 @@ class InspectionPolicy
      */
     public function delete(User $user, Inspection $inspection)
     {
-        if(in_array('Delete_inspection',$user->getpermission()))
+        if($user->getRoleadmin())
             return true;
+        if(in_array('Delete_inspection',$user->getpermission()))
+        {
+            if ($inspection->Center->id == $user->center->id)
+                return $inspection->Center->id;
+
+        }
         else
             return false;
     }
@@ -92,8 +124,14 @@ class InspectionPolicy
      */
     public function restore(User $user, Inspection $inspection)
     {
-        if(in_array('Store_inspection',$user->getpermission()))
+        if($user->getRoleadmin())
             return true;
+        if(in_array('Store_inspection',$user->getpermission()))
+        {
+            if ($inspection->Center->id == $user->center->id)
+                return $inspection->Center->id;
+
+        }
         else
             return false;
     }
@@ -107,8 +145,13 @@ class InspectionPolicy
      */
     public function forceDelete(User $user, Inspection $inspection)
     {
-        if(in_array('Delete_inspection',$user->getpermission()))
+        if($user->getRoleadmin())
             return true;
+        if(in_array('Delete_inspection',$user->getpermission()))
+        {
+            if ($inspection->Center->id == $user->center->id)
+                return $inspection->Center->id;
+        }
         else
             return false;
     }

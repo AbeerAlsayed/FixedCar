@@ -18,6 +18,8 @@ class UserPolicy
      */
     public function viewAny(User $user)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('View_User',$user->getpermission()))
             return true;
         else
@@ -33,6 +35,8 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('View_User',$user->getpermission()))
             return true;
         else
@@ -47,6 +51,8 @@ class UserPolicy
      */
     public function create(User $user)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Create_User',$user->getpermission()))
             return true;
         else
@@ -62,6 +68,8 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Edit_User',$user->getpermission()))
             return true;
         else
@@ -77,6 +85,8 @@ class UserPolicy
      */
     public function delete(User $user, User $model)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Delete_User',$user->getpermission()))
             return true;
         else
@@ -92,6 +102,8 @@ class UserPolicy
      */
     public function restore(User $user, User $model)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Store_User',$user->getpermission()))
             return true;
         else
@@ -107,6 +119,8 @@ class UserPolicy
      */
     public function forceDelete(User $user, User $model)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Delete_User',$user->getpermission()))
             return true;
         else

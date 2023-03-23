@@ -23,26 +23,18 @@ class RoleSeeder extends Seeder
         Role::create(['name' => 'Technical']);
         Role::create(['name' => 'accountant']);
 
-        User::create([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('admin'),
-            'center_id' => 0,
-//            'warehouse_id'=>0
-        ]);
+
+
 // permission for Admin
 
         $role = Role::all();
         $user = User::all();
 
-        foreach ($user as $usr) {
-            if ($usr->name == 'admin') {
-                DB::table('user_role')->insert([
-                    'user_id' => $usr->id,'role_id'=>1]);
-            }
-            for ($p = 1; $p <= 60; $p++) {
-                DB::table('role_permission')->insert(['role_id'=>1,'permission_id' => $p]);
-            }}
+
+//            for ($p = 1; $p <= 60; $p++) {
+//                DB::table('role_permission')->insert(['role_id'=>1,'permission_id' => $p]);
+//            }}
+
 //permission for accountant
 
         for ($p = 1; $p <= 8; $p++) {
@@ -54,7 +46,7 @@ class RoleSeeder extends Seeder
                     'user_id' => $usr->id]);
             }
         }
-//   permission for accountant
+//   permission for Technical
         for ($p = 7; $p <= 19; $p++) {
             DB::table('role_permission')->insert(['role_id'=>3,'permission_id' => $p]);
         }

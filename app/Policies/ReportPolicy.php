@@ -18,6 +18,8 @@ class ReportPolicy
      */
     public function viewAny(User $user)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('View_Report',$user->getpermission()))
             return true;
         else
@@ -33,6 +35,8 @@ class ReportPolicy
      */
     public function view(User $user, Report $report)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('View_Report',$user->getpermission()))
             return true;
         else
@@ -47,6 +51,8 @@ class ReportPolicy
      */
     public function create(User $user)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Create_Report',$user->getpermission()))
             return true;
         else
@@ -62,6 +68,8 @@ class ReportPolicy
      */
     public function update(User $user, Report $report)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Edit_Report',$user->getpermission()))
             return true;
         else
@@ -77,6 +85,8 @@ class ReportPolicy
      */
     public function delete(User $user, Report $report)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Delete_Report',$user->getpermission()))
             return true;
         else
@@ -92,6 +102,8 @@ class ReportPolicy
      */
     public function restore(User $user, Report $report)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Store_Report',$user->getpermission()))
             return true;
         else
@@ -107,6 +119,8 @@ class ReportPolicy
      */
     public function forceDelete(User $user, Report $report)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Delete_Report',$user->getpermission()))
             return true;
         else

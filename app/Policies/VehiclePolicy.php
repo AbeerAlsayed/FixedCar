@@ -18,6 +18,8 @@ class VehiclePolicy
      */
     public function viewAny(User $user)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('View_Vehicle',$user->getpermission()))
             return true;
         else
@@ -33,6 +35,8 @@ class VehiclePolicy
      */
     public function view(User $user, Vehicle $vehicle)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('View_Vehicle',$user->getpermission()))
             return true;
         else
@@ -47,6 +51,8 @@ class VehiclePolicy
      */
     public function create(User $user)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Create_Vehicle',$user->getpermission()))
             return true;
         else
@@ -62,6 +68,8 @@ class VehiclePolicy
      */
     public function update(User $user, Vehicle $vehicle)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Edit_Vehicle',$user->getpermission()))
             return true;
         else
@@ -77,6 +85,8 @@ class VehiclePolicy
      */
     public function delete(User $user, Vehicle $vehicle)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Delete_Vehicle',$user->getpermission()))
             return true;
         else
@@ -92,6 +102,8 @@ class VehiclePolicy
      */
     public function restore(User $user, Vehicle $vehicle)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Store_Vehicle',$user->getpermission()))
             return true;
         else
@@ -107,6 +119,8 @@ class VehiclePolicy
      */
     public function forceDelete(User $user, Vehicle $vehicle)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Delete_Vehicle',$user->getpermission()))
             return true;
         else

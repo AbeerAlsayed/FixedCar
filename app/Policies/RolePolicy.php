@@ -18,6 +18,8 @@ class RolePolicy
      */
     public function viewAny(User $user)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('View_Role',$user->getpermission()))
             return true;
         else
@@ -33,6 +35,8 @@ class RolePolicy
      */
     public function view(User $user, Role $role)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('View_Role',$user->getpermission()))
             return true;
         else
@@ -47,6 +51,8 @@ class RolePolicy
      */
     public function create(User $user)
     {
+        if($user->getRoleadmin())
+        return true;
         if(in_array('Create_Role',$user->getpermission()))
             return true;
         else
@@ -62,6 +68,8 @@ class RolePolicy
      */
     public function update(User $user, Role $role)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Edit_Role',$user->getpermission()))
             return true;
         else
@@ -77,6 +85,8 @@ class RolePolicy
      */
     public function delete(User $user, Role $role)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Delete_Role',$user->getpermission()))
             return true;
         else
@@ -92,6 +102,8 @@ class RolePolicy
      */
     public function restore(User $user, Role $role)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Store_Role',$user->getpermission()))
             return true;
         else
@@ -107,6 +119,8 @@ class RolePolicy
      */
     public function forceDelete(User $user, Role $role)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Delete_Role',$user->getpermission()) )
             return true;
         else

@@ -30,7 +30,12 @@ class CenterPolicy
 
     public function viewAny(User $user)
     {
-
+////        if(in_array('View_center',Auth::user()->getpermission()))
+//        {  foreach($user users as $se)
+//            {
+//                if ($se->id==$user->id)
+//                    return $se->id;
+//            }}
         return true;
     }
 
@@ -44,12 +49,15 @@ class CenterPolicy
 //     */
     public function view(User $user, Center $center)
     {
-                    if(in_array('View_center',Auth::user()->getpermission()))
-                return true;
+        if($user->getRoleadmin())
+            return true;
 
-            else
-                return false;
-
+//        if(in_array('View_center',Auth::user()->getpermission()))
+//        {
+        if($center->id == $user->center->id)
+            return $user->center->id;
+        else
+            return false;
     }
 //
 //    /**
@@ -60,8 +68,11 @@ class CenterPolicy
 //     */
     public function create(User $user)
     {
-        if(in_array('Create_center',$user->getpermission()) )
-        return true;
+
+        if($user->getRoleadmin())
+            return true;
+
+//                if(in_array('Create_center',$user->getpermission()))
         else
             return false;
     }
@@ -76,9 +87,10 @@ class CenterPolicy
 //     */
     public function update(User $user, Center $center)
     {
-        if(in_array('Edit_center',$user->getpermission()))
-            return true;
 
+        if($user->getRoleadmin())
+            return true;
+//        if(in_array('Edit_center',$user->getpermission()))
         else
             return false;
     }
@@ -92,7 +104,8 @@ class CenterPolicy
 //     */
     public function delete(User $user, Center $center)
     {
-        if(in_array('Delete_center',$user->getpermission()))
+//        if(in_array('Delete_center',$user->getpermission()))
+        if($user->getRoleadmin())
             return true;
 
         else
@@ -108,7 +121,8 @@ class CenterPolicy
 //     */
     public function restore(User $user, Center $center)
     {
-        if(in_array('Store_center',$user->getpermission()))
+//        if(in_array('Store_center',$user->getpermission()))
+        if($user->getRoleadmin())
             return true;
 
         else
@@ -124,7 +138,8 @@ class CenterPolicy
 //     */
     public function forceDelete(User $user, Center $center)
     {
-        if(in_array('Delete_center',Auth::user()->getpermission()))
+//        if(in_array('Delete_center',Auth::user()->getpermission()))
+        if($user->getRoleadmin())
             return true;
         else
             return false;

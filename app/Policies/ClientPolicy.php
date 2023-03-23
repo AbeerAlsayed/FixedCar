@@ -31,6 +31,8 @@ class ClientPolicy
      */
     public function view(User $user, Client $client)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('View_client',$user->getpermission()))
             return true;
         else
@@ -45,6 +47,8 @@ class ClientPolicy
      */
     public function create(User $user)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Create_client',$user->getpermission()))
             return true;
         else
@@ -60,6 +64,8 @@ class ClientPolicy
      */
     public function update(User $user, Client $client)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Edit_client',$user->getpermission()))
             return true;
         else
@@ -75,6 +81,8 @@ class ClientPolicy
      */
     public function delete(User $user, Client $client)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Delete_client',$user->getpermission()))
             return true;
         else
@@ -90,6 +98,8 @@ class ClientPolicy
      */
     public function restore(User $user, Client $client)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Store_client',$user->getpermission()))
             return true;
         else
@@ -105,6 +115,8 @@ class ClientPolicy
      */
     public function forceDelete(User $user, Client $client)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Delete_client',$user->getpermission()))
             return true;
         else

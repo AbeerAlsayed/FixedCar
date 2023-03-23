@@ -6,6 +6,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 class UserSeeder extends Seeder
 {
@@ -16,6 +17,13 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('admin'),
+            'center_id' => 0,
+
+        ]);
 
         User::create([
             'name' => 'ahmad',
@@ -41,13 +49,40 @@ class UserSeeder extends Seeder
 //            'warehouse_id'=>0
         ]);
 
+
         User::create([
             'name' => 'tamador',
             'email' => 'tamador@gmail.com',
             'password' => Hash::make('123'),
-            'center_id' => 0,
-//            'warehouse_id'=>0
+            'center_id' => 1,
+
         ]);
+        User::create([
+            'name' => 'samer',
+            'email' => 'samer@gmail.com',
+            'password' => Hash::make('samer'),
+            'center_id' => 1,
+
+        ]);
+
+        User::create([
+            'name' => 'hani',
+            'email' => 'hani@gmail.com',
+            'password' => Hash::make('hani'),
+            'center_id' => 1,
+
+        ]);
+        DB::table('user_role')->insert([
+            'user_id' =>1,'role_id'=>1]);
+
+        DB::table('user_role')->insert([
+            'user_id' =>6,'role_id'=>3]);
+
+        DB::table('user_role')->insert([
+            'user_id' =>7,'role_id'=>3]);
+
+        DB::table('user_role')->insert([
+            'user_id' =>5,'role_id'=>2]);
 
     }
 }

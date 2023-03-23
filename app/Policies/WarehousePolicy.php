@@ -18,6 +18,8 @@ class WarehousePolicy
      */
     public function viewAny(User $user)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('View_Warehouse',$user->getpermission()))
             return true;
         else
@@ -33,6 +35,8 @@ class WarehousePolicy
      */
     public function view(User $user, Warehouse $warehouse)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('View_Warehouse',$user->getpermission()))
             return true;
         else
@@ -47,6 +51,8 @@ class WarehousePolicy
      */
     public function create(User $user)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Create_Warehouse',$user->getpermission()))
             return true;
         else
@@ -62,6 +68,8 @@ class WarehousePolicy
      */
     public function update(User $user, Warehouse $warehouse)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Edit_Warehouse',$user->getpermission()))
             return true;
         else
@@ -77,6 +85,8 @@ class WarehousePolicy
      */
     public function delete(User $user, Warehouse $warehouse)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Delete_Warehouse',$user->getpermission()))
             return true;
         else
@@ -92,6 +102,8 @@ class WarehousePolicy
      */
     public function restore(User $user, Warehouse $warehouse)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Store_Warehouse',$user->getpermission()))
             return true;
         else
@@ -107,6 +119,8 @@ class WarehousePolicy
      */
     public function forceDelete(User $user, Warehouse $warehouse)
     {
+        if($user->getRoleadmin())
+            return true;
         if(in_array('Delete_Warehouse',$user->getpermission()))
             return true;
         else
