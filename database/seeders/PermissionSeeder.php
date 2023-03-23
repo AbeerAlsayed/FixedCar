@@ -53,7 +53,7 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'Edit_bill']);
 
 
-        Permission::create(['name' => 'Create_inspection']);
+
         Permission::create(['name' => 'Delete_inspection']);
 
 
@@ -115,5 +115,7 @@ class PermissionSeeder extends Seeder
 
         Permission::create(['name' => 'Create_service']);
         Permission::create(['name' => 'Delete_service']);
+
+        Permission::create(['name' => 'Create_inspection']);
     }
 }
