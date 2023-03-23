@@ -28,14 +28,14 @@ class InspectionSeeder extends Seeder
             'status' =>'Process',
 //            'Client_id'=>2,
             'vehicle_id'=>1,
-            'center_id'=>1,
+            'center_id'=>2,
             'user_id'=>2
         ]);
         Inspection::create([
             'name'=>'Changing car tires',
             'status' =>'Finished',
 //            'Client_id'=>3,
-            'vehicle_id'=>1,
+            'vehicle_id'=>3,
             'center_id'=>1,
             'user_id'=>3
         ]);

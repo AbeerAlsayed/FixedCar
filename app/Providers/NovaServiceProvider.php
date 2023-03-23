@@ -41,7 +41,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 MenuSection::make('Vehicles', [
                     MenuItem::resource(Client::class),
                     MenuItem::resource(Vehicle::class),
-//                    MenuItem::resource(Inspection::class),
+                    MenuItem::resource(Inspection::class),
                 ])->icon('pencil-alt')->collapsable(),
                 MenuSection::make('Document', [
                     MenuItem::resource(Report::class),
