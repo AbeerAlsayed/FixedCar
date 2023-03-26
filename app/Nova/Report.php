@@ -48,7 +48,7 @@ class Report extends Resource
         return [
             ID::make()->sortable(),
             Markdown::make('Description','description')->showOnCreating(),
-            BelongsTo::make('Vehicle','vehicle',Vehicle::class),
+//            BelongsTo::make('Vehicle','vehicle',Vehicle::class),
             BelongsTo::make('Inspection','inspections',Inspection::class) ->displayUsing(function ($name) {
 
                 $jsonUserData=$name
