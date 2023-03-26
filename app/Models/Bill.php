@@ -30,4 +30,8 @@ class Bill extends Model
     {
         return $this->belongsTo(Report::class,'report_id');
     }
+    public function inspection(): BelongsTo
+    {
+        return $this->belongsTo(Inspection::class);
+    }
 }

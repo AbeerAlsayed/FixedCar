@@ -15,7 +15,6 @@ use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
-use Orlyapps\NovaBelongsToDepend\{NovaBelongsToDepend};
 
 //use App\Models\Client;
 class Inspection extends Resource
@@ -59,16 +58,6 @@ class Inspection extends Resource
 //            }),
 
 
-//            NovaBelongsToDepend::make('Supplier')
-//                ->optionsResolve(function ($article) {
-//                    return \App\Supplier::whereHas('articles', function ($q) use ($article) {
-//                        $q->where('article_id', $article->id);
-//                    })->get();
-//                })
-//                ->dependsOn('Article')
-//                ->rules('required'),
-
-//            Text::make('service', 'name'),
             Select::make('name services','name')
                 ->options(function (){
 //
@@ -76,11 +65,6 @@ class Inspection extends Resource
 //                    $q->where('name');
                     })->pluck('type','type');
                 })->searchable(),
-
-
-
-
-
 
             Select::make('Status' , 'status')->options([
                 'Pending' => 'Pending',
@@ -112,12 +96,6 @@ class Inspection extends Resource
                                return (array)$item;
                            }, $userData);
                        }),
-//            BelongsTo::make('staff','user',User::class)
-//                ->displayUsing(function (){
-//                    return \App\Models\User::whereHas('Roles', function($q){
-//                        $q->where('name', 'Technical');
-//                    })->pluck('name');
-//                }),
 
             Select::make('Technical','user_id')
                 ->options(function (){
@@ -127,8 +105,8 @@ class Inspection extends Resource
             })->onlyOnForms(),
 //            new Panel('Center',new visibilityFields()),
             BelongsTo::make('Center','Center',Center::class),
-            HasOne::make('Reports' ,'Reports' ,Report::class)->hideWhenCreating(),
-
+            HasOne::make('Reports' ,'Reports' ,Report::class),
+            HasOne::make('Bill' ,'Bill',Bill::class),
         ];
     }
 

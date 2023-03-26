@@ -41,4 +41,8 @@ class Inspection extends Model
         return $this->hasOne(Report::class );
     }
 
+    public function  Bill(): HasOne
+    {
+        return $this->hasOne(Bill::class );
+    }
 }

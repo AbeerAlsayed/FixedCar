@@ -17,8 +17,9 @@ class BillSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('bills')->insert([
-            'report_id' => 1,
-        ]);
+//        DB::table('bills')->insert([
+//            'report_id' => 1,
+//            ''
+//        ]);
     }
 }
