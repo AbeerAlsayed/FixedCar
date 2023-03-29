@@ -87,12 +87,24 @@ class User extends Authenticatable
     public function getRoleadmin()
     {
 
-        foreach (Auth::user()->Roles as $per)
-        {
-            if($per->name=='Admin')
-        return true;
+        foreach (Auth::user()->Roles as $per) {
+            if ($per->name == 'Admin')
+                return true;
             else
                 return false;
+        }
     }
+
+        public function getRoleManeger()
+    {
+
+        foreach (Auth::user()->Roles as $per)
+        {
+            if($per->name=='Manager_Center')
+                return true;
+            else
+                return false;
+        }
     }
+
 }

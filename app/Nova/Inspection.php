@@ -87,9 +87,9 @@ class Inspection extends Resource
                                ->join('clients', 'clients.id', '=', 'vehicles.client_id')
                                ->where('vehicles.id', '=', $name->id)
 //                               ->where('vehicles.client_id', '=', $name->id)
-                               ->select('clients.name', 'vehicles.brand')
+                               ->select('clients.phone_number', 'vehicles.brand')
                                ->get()
-                               ->pluck('name', 'brand')
+                               ->pluck('phone_number', 'brand')
                            ;
                            $userData = json_decode($jsonUserData, true);
                            return array_map(function($item) {
