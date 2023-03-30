@@ -18,11 +18,7 @@ class Report extends Model
 
     public function inspections(): BelongsTo
     {
-<<<<<<< HEAD
-=======
-        return $this->belongsTo(Inspection::class,'inspection_id','id');
-    }
->>>>>>> a412f95966f6da6ea5d7b637fc32cf19ced768c0
+
 
 
         return $this->belongsTo(Inspection::class,'inspection_id','id');
@@ -47,11 +43,9 @@ class Report extends Model
 
     public function Users(): BelongsTo
     {
-<<<<<<< HEAD
+
         return $this->belongsTo(User::class,'user_id');
-=======
-        return $this->belongsTo(User::class);
->>>>>>> a412f95966f6da6ea5d7b637fc32cf19ced768c0
+
     }
 
     public function  Bill(): HasOne

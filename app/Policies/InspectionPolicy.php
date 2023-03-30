@@ -69,14 +69,14 @@ class InspectionPolicy
 
 //        if($user->getRoleadmin())
 //            return true;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //        if(in_array('Create_inspection',$user->getpermission()))
 //            if ($user->Inspections->Center->id == $user->center->id)
 //                return $user->center->id;
 //
 //        else
             return false;
-=======
+//=======
 //        if($user->Technical())
 //            return false;
 //        if(in_array('Create_inspection',$user->getpermission()))
@@ -85,7 +85,7 @@ class InspectionPolicy
 
 //        else
         return false;
->>>>>>> a412f95966f6da6ea5d7b637fc32cf19ced768c0
+//>>>>>>> a412f95966f6da6ea5d7b637fc32cf19ced768c0
     }
 
     /* Determine whether the user can update the model.
