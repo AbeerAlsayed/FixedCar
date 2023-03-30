@@ -81,6 +81,7 @@ class Inspection extends Resource
 //            Heading::make('<p class="text-danger">* All fields are required.</p>')->asHtml(),
             Markdown::make('Description','description'),
 //            new Panel('Client',$this->visibilityFields()),
+<<<<<<< HEAD
 //            BelongsTo::make('Vehicles','vehicle',Vehicle::class) ->displayUsing(function ($name) {
 //
 //                           $jsonUserData=$name
@@ -96,6 +97,23 @@ class Inspection extends Resource
 //                               return (array)$item;
 //                           }, $userData);
 //                       }),
+=======
+            BelongsTo::make('Vehicles','vehicle',Vehicle::class) ->displayUsing(function ($name) {
+
+                           $jsonUserData=$name
+                               ->join('clients', 'clients.id', '=', 'vehicles.client_id')
+                               ->where('vehicles.id', '=', $name->id)
+//                               ->where('vehicles.client_id', '=', $name->id)
+                               ->select('clients.phone_number', 'vehicles.brand')
+                               ->get()
+                               ->pluck('phone_number', 'brand')
+                           ;
+                           $userData = json_decode($jsonUserData, true);
+                           return array_map(function($item) {
+                               return (array)$item;
+                           }, $userData);
+                       }),
+>>>>>>> a412f95966f6da6ea5d7b637fc32cf19ced768c0
 
             Select::make('Technical','user_id')
                 ->options(function (){

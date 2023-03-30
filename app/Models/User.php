@@ -68,7 +68,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class,'user_role');
     }
 
+<<<<<<< HEAD
     public function Reports()
+=======
+    public function Reports():BelongsTo
+>>>>>>> a412f95966f6da6ea5d7b637fc32cf19ced768c0
     {
         return $this->hasMany(Report::class,'user_id');
     }
@@ -87,12 +91,24 @@ class User extends Authenticatable
     public function getRoleadmin()
     {
 
-        foreach (Auth::user()->Roles as $per)
-        {
-            if($per->name=='Admin')
-        return true;
+        foreach (Auth::user()->Roles as $per) {
+            if ($per->name == 'Admin')
+                return true;
             else
                 return false;
+        }
     }
+
+        public function getRoleManeger()
+    {
+
+        foreach (Auth::user()->Roles as $per)
+        {
+            if($per->name=='Manager_Center')
+                return true;
+            else
+                return false;
+        }
     }
+
 }
