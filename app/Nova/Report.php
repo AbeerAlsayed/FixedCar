@@ -65,6 +65,7 @@ class Report extends Resource
                 }, $userData);
             }),
             BelongsTo::make('SparePart','SpareParts',SparePart::class),
+            Text::make('Count SparePart ','count'),
             BelongsToMany::make('Service','Services',Service::class),
 //            Text::make('User','user_id')->displayUsing(function ($name){
 //                return $name->join('user_report', 'user_report.report_id', '=', 'reports.id')
@@ -78,22 +79,7 @@ class Report extends Resource
 //            }),
 
 
-            BelongsToMany::make('User','Users',User::class)->displayUsing(function ($name) {
-
-                $jsonUserData=$name
-                    ->join('user_role', 'roles.id', '=', 'users.role_id')
-
-                    ->where('users.id', '=', $name->id)
-//                   ->where('vehicles.client_id', '=', $name->id)
-                    ->select('roles.name', 'users.name')
-                    ->get()
-                    ->pluck('name','name')
-                ;
-                $userData = json_decode($jsonUserData, true);
-                return array_map(function($item) {
-                    return (array)$item;
-                }, $userData);
-            }),
+            BelongsTo::make('User','Users',User::class),
 
             HasOne::make('Bill','Bill',Bill::class),
         ];

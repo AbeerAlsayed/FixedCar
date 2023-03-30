@@ -36,9 +36,9 @@ class Inspection extends Model
         return $this->belongsTo(Center::class,'center_id');
     }
 
-    public function Reports(): hasOne
+    public function Reports(): HasOne
     {
-        return $this->hasOne(Report::class );
+        return $this->hasOne(Report::class,'inspection_id','id');
     }
 
     public function  Bill(): HasOne

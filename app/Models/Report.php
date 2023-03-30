@@ -23,7 +23,7 @@ class Report extends Model
 
     public function inspections(): BelongsTo
     {
-        return $this->belongsTo(Inspection::class,'inspection_id');
+        return $this->belongsTo(Inspection::class,'inspection_id','id');
     }
 
     public function SpareParts(): BelongsTo
@@ -36,9 +36,9 @@ class Report extends Model
         return $this->belongsToMany(Service::class,'report_service');
     }
 
-    public function Users(): BelongsToMany
+    public function Users(): BelongsTo
     {
-        return $this->belongsToMany(User::class,'user_report');
+        return $this->belongsTo(User::class);
     }
 
     public function  Bill(): HasOne

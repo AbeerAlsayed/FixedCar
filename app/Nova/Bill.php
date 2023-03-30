@@ -5,6 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -46,7 +47,8 @@ class Bill extends Resource
             ID::make()->sortable(),
             BelongsToMany::make('SparePart','SpareParts',SparePart::class),
             BelongsToMany::make('Service','Services',Service::class),
-            BelongsTo::make('Report','Report',Report::class),
+            BelongsTo::make('Report','Report',Report::class)->nullable(),
+            Currency::make('Price','price'),
         ];
     }
 

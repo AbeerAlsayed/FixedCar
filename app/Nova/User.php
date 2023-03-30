@@ -82,7 +82,7 @@ class User extends Resource
 
             BelongsToMany::make('Roles','Roles',Role::class),
 
-            BelongsToMany::make('Reports','Reports',Report::class),
+            HasMany::make('Reports','Reports',Report::class),
 
         ];
     }
