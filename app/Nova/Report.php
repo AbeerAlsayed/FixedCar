@@ -50,13 +50,8 @@ class Report extends Resource
         return [
             ID::make()->sortable(),
             Markdown::make('Description','description')->showOnCreating(),
-<<<<<<< HEAD
             BelongsTo::make('Inspection','inspections',Inspection::class)
                 ->displayUsing(function ($name) {
-=======
-//            BelongsTo::make('Vehicle','vehicle',Vehicle::class),
-            BelongsTo::make('Inspection','inspections',Inspection::class) ->displayUsing(function ($name) {
->>>>>>> a412f95966f6da6ea5d7b637fc32cf19ced768c0
 
                     $jsonUserData=$name
                         ->join('vehicles', 'vehicles.id', '=', 'inspections.vehicle_id')
@@ -84,6 +79,7 @@ class Report extends Resource
                         ->pluck('name');
 
                 }),
+
             BelongsTo::make('Center ','center_inspection',Inspection::class)
                 ->displayUsing(function ($name) {
 
@@ -98,24 +94,7 @@ class Report extends Resource
                 }),
 
             BelongsTo::make('SparePart','SpareParts',SparePart::class),
-            Text::make('Count SparePart ','count'),
             BelongsToMany::make('Service','Services',Service::class),
-<<<<<<< HEAD
-=======
-//            Text::make('User','user_id')->displayUsing(function ($name){
-//                return $name->join('user_report', 'user_report.report_id', '=', 'reports.id')
-//                    ->where('reports.id', '=', $name->id)
-//                    ->where('reports.Users', '=', $name->user_id)
-//
-////                   ->where('vehicles.client_id', '=', $name->id)
-//                    ->select('user_report.user_id')
-//
-//                    ->get();
-//            }),
-
-
-            BelongsTo::make('User','Users',User::class),
->>>>>>> a412f95966f6da6ea5d7b637fc32cf19ced768c0
 
 //            BelongsTo::make('User','technical',User::class),
             HasOne::make('Bill','Bill',Bill::class),
