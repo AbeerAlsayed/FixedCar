@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->string('description');
-            $table->unsignedBigInteger('vehicle_id');
+//            $table->unsignedBigInteger('vehicle_id');
             $table->unsignedBigInteger('inspection_id');
             $table->unsignedBigInteger('spare_part_id');
-//            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
+
             $table->softDeletes();
             $table->timestamps();
         });

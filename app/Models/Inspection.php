@@ -38,7 +38,7 @@ class Inspection extends Model
 
     public function Reports(): hasOne
     {
-        return $this->hasOne(Report::class );
+        return $this->hasOne(Report::class ,'inspection_id','id');
     }
 
     public function  Bill(): HasOne

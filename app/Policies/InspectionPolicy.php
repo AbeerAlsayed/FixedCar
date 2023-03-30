@@ -65,13 +65,13 @@ class InspectionPolicy
     public function create(User $user)
     {
 
-        if($user->getRoleadmin())
-            return true;
-        if(in_array('Create_inspection',$user->getpermission()))
-            if ($user->Inspections->Center->id == $user->center->id)
-                return $user->center->id;
-
-        else
+//        if($user->getRoleadmin())
+//            return true;
+//        if(in_array('Create_inspection',$user->getpermission()))
+//            if ($user->Inspections->Center->id == $user->center->id)
+//                return $user->center->id;
+//
+//        else
             return false;
     }
 

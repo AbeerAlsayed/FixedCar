@@ -54,6 +54,7 @@ abstract class Resource extends NovaResource
      */
     public static function relatableQuery(NovaRequest $request, $query)
     {
+
         return parent::relatableQuery($request, $query);
     }
 }

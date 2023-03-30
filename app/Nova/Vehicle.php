@@ -54,7 +54,7 @@ class Vehicle extends Resource
 
             HasMany::make('Inspection','inspection',Inspection::class),
 
-//            HasMany::make('Report','Reports',Report::class)->rules('required'),
+
         ];
     }
 

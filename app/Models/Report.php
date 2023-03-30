@@ -16,16 +16,20 @@ class Report extends Model
 
     protected $guarded = ['id'];
 
-    public function vehicle(): BelongsTo
-    {
-        return $this->belongsTo(Vehicle::class,'vehicle_id');
-    }
-
     public function inspections(): BelongsTo
     {
-        return $this->belongsTo(Inspection::class,'inspection_id');
-    }
 
+
+        return $this->belongsTo(Inspection::class,'inspection_id','id');
+    }
+    public function technical(): BelongsTo
+    {
+        return $this->belongsTo(Inspection::class,'inspection_id','id');
+    }
+    public function center_inspection(): BelongsTo
+    {
+        return $this->belongsTo(Inspection::class,'inspection_id','id');
+    }
     public function SpareParts(): BelongsTo
     {
         return $this->belongsTo(SparePart::class,'spare_part_id');
@@ -36,9 +40,9 @@ class Report extends Model
         return $this->belongsToMany(Service::class,'report_service');
     }
 
-    public function Users(): BelongsToMany
+    public function Users(): BelongsTo
     {
-        return $this->belongsToMany(User::class,'user_report');
+        return $this->belongsTo(User::class,'user_id');
     }
 
     public function  Bill(): HasOne

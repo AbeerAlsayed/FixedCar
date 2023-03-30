@@ -21,10 +21,7 @@ class Vehicle extends Model
         return $this->belongsTo(Client::class ,'client_id');
     }
 
-    public function Reports():HasMany
-    {
-        return $this->hasMany(Report::class);
-    }
+
     public function inspection(): HasMany
     {
         return $this->hasMany(Inspection::class);

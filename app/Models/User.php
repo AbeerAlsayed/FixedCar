@@ -60,7 +60,7 @@ class User extends Authenticatable
 
     public function Inspections():HasMany
     {
-        return $this->hasMany(Inspection::class,'user_id');
+        return $this->hasMany(Inspection::class);
     }
 
     public function Roles():BelongsToMany
@@ -68,9 +68,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class,'user_role');
     }
 
-    public function Reports():BelongsToMany
+    public function Reports()
     {
-        return $this->belongsToMany(Report::class,'user_report');
+        return $this->hasMany(Report::class,'user_id');
     }
     public function getpermission()
     {

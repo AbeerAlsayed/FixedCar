@@ -81,21 +81,21 @@ class Inspection extends Resource
 //            Heading::make('<p class="text-danger">* All fields are required.</p>')->asHtml(),
             Markdown::make('Description','description'),
 //            new Panel('Client',$this->visibilityFields()),
-            BelongsTo::make('Vehicles','vehicle',Vehicle::class) ->displayUsing(function ($name) {
-
-                           $jsonUserData=$name
-                               ->join('clients', 'clients.id', '=', 'vehicles.client_id')
-                               ->where('vehicles.id', '=', $name->id)
-//                               ->where('vehicles.client_id', '=', $name->id)
-                               ->select('clients.name', 'vehicles.brand')
-                               ->get()
-                               ->pluck('name', 'brand')
-                           ;
-                           $userData = json_decode($jsonUserData, true);
-                           return array_map(function($item) {
-                               return (array)$item;
-                           }, $userData);
-                       }),
+//            BelongsTo::make('Vehicles','vehicle',Vehicle::class) ->displayUsing(function ($name) {
+//
+//                           $jsonUserData=$name
+//                               ->join('clients', 'clients.id', '=', 'vehicles.client_id')
+//                               ->where('vehicles.id', '=', $name->id)
+////                               ->where('vehicles.client_id', '=', $name->id)
+//                               ->select('clients.name', 'vehicles.brand')
+//                               ->get()
+//                               ->pluck('name', 'brand')
+//                           ;
+//                           $userData = json_decode($jsonUserData, true);
+//                           return array_map(function($item) {
+//                               return (array)$item;
+//                           }, $userData);
+//                       }),
 
             Select::make('Technical','user_id')
                 ->options(function (){
