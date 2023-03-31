@@ -37,7 +37,7 @@ class RoleSeeder extends Seeder
 
 //permission for accountant
 
-        for ($p = 1; $p <= 8; $p++) {
+        for ($p = 1; $p <= 11; $p++) {
             DB::table('role_permission')->insert(['role_id'=>4,'permission_id' => $p]);
         }
         foreach ($user as $usr) {
