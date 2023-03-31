@@ -12,6 +12,7 @@ use App\Nova\Permission;
 use App\Nova\Report;
 use App\Nova\Role;
 use App\Nova\Service;
+use App\Nova\SparePart;
 use App\Nova\User;
 use App\Nova\Vehicle;
 use App\Nova\Warehouse;
@@ -56,6 +57,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     MenuItem::resource(Center::class),
                     MenuItem::resource(Service::class),
                     MenuItem::resource(Warehouse::class),
+                    MenuItem::resource(SparePart::class),
                 ])->icon('cog')->collapsable(),
 
             ];
