@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -48,7 +49,16 @@ class Bill extends Resource
             BelongsToMany::make('SparePart','SpareParts',SparePart::class),
             BelongsToMany::make('Service','Services',Service::class),
             BelongsTo::make('Report','Report',Report::class)->nullable(),
-            Currency::make('Price','price'),
+//            Currency::make('Price','price'),
+            Select::make('price','price')
+                ->options(function (){
+
+                    return \App\Models\Service::query()
+                        ->select(['price','id'])
+//                        ->where('type','=','Changing car tires')
+                        ->pluck('price','price');
+
+                }),
         ];
     }
 
