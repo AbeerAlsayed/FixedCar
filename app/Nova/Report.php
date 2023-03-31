@@ -94,7 +94,10 @@ class Report extends Resource
                 }),
 
             BelongsTo::make('SparePart','SpareParts',SparePart::class),
-            BelongsToMany::make('Service','Services',Service::class),
+
+            Text::make('Number', 'items', function () {
+                return !is_null($this->items) ? number_format($this->items) : 0;
+            }),
 
 //            BelongsTo::make('User','technical',User::class),
             HasOne::make('Bill','Bill',Bill::class),

@@ -16,16 +16,9 @@ return new class extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->string('description');
-//            $table->unsignedBigInteger('vehicle_id');
             $table->unsignedBigInteger('inspection_id');
             $table->unsignedBigInteger('spare_part_id');
-<<<<<<< HEAD
-            $table->unsignedBigInteger('user_id')->nullable();
-
-=======
-           $table->integer('count');
-           $table->unsignedBigInteger('user_id');
->>>>>>> a412f95966f6da6ea5d7b637fc32cf19ced768c0
+            $table->integer('items');
             $table->softDeletes();
             $table->timestamps();
         });

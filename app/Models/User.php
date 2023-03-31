@@ -68,11 +68,6 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class,'user_role');
     }
 
-
-    public function Reports()
-    {
-        return $this->hasMany(Report::class,'user_id');
-    }
     public function getpermission()
     {
         $permission=[];

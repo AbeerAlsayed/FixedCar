@@ -16,6 +16,7 @@ use App\Nova\User;
 use App\Nova\Vehicle;
 use App\Nova\Warehouse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Menu\MenuItem;
 use Laravel\Nova\Menu\MenuSection;
