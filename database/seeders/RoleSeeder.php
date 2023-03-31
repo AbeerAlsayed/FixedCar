@@ -37,7 +37,7 @@ class RoleSeeder extends Seeder
 
 //permission for accountant
 
-        for ($p = 1; $p <= 8; $p++) {
+        for ($p = 1; $p <= 11; $p++) {
             DB::table('role_permission')->insert(['role_id'=>4,'permission_id' => $p]);
         }
         foreach ($user as $usr) {
@@ -50,7 +50,8 @@ class RoleSeeder extends Seeder
         for ($p = 7; $p <= 19; $p++) {
             DB::table('role_permission')->insert(['role_id'=>3,'permission_id' => $p]);
         }
-        DB::table('role_permission')->insert(['role_id'=>3,'permission_id' => 30]);
+
+        DB::table('role_permission')->insert(['role_id'=>3,'permission_id' => 33]);
         foreach ($user as $usr) {
             if ($usr->Roles == 'Technical') {
                 DB::table('user_role')->insert([
@@ -61,7 +62,8 @@ class RoleSeeder extends Seeder
         for ($p = 7; $p <= 45; $p++) {
             DB::table('role_permission')->insert(['role_id'=>2,'permission_id' => $p]);
         }
-        DB::table('role_permission')->insert(['role_id'=>2,'permission_id' => 30]);
+
+        DB::table('role_permission')->insert(['role_id'=>2,'permission_id' => 60]);
         foreach ($user as $usr) {
             if ($usr->Roles == 'Manager_Center') {
                 DB::table('user_role')->insert([

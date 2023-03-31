@@ -18,7 +18,13 @@ return new class extends Migration
             $table->string('description');
             $table->unsignedBigInteger('inspection_id');
             $table->unsignedBigInteger('spare_part_id');
+<<<<<<< HEAD
             $table->integer('items');
+=======
+
+           $table->integer('count');
+           $table->unsignedBigInteger('user_id');
+>>>>>>> b06979460b5d85a799224e680fed74a397405df2
             $table->softDeletes();
             $table->timestamps();
         });

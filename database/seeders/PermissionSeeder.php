@@ -36,10 +36,11 @@ class PermissionSeeder extends Seeder
 
         // Permission for Report
         Permission::create(['name' => 'View_Report']);
-        Permission::create(['name' => 'Create_Report']);
-        Permission::create(['name' => 'Delete_Report']);
         Permission::create(['name' => 'Store_Report']);
         Permission::create(['name' => 'Edit_Report']);
+        Permission::create(['name' => 'Create_Report']);
+        Permission::create(['name' => 'Delete_Report']);
+
 
 
 //        Permission for Role manager_center
