@@ -95,8 +95,8 @@ class Report extends Resource
 
             BelongsTo::make('SparePart','SpareParts',SparePart::class),
 
-            Text::make('Number', 'items', function () {
-                return !is_null($this->items) ? number_format($this->items) : 0;
+            Text::make('Number', 'count', function () {
+                return !is_null($this->count) ? number_format($this->count) : 0;
             }),
 
 //            BelongsTo::make('User','technical',User::class),
